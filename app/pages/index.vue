@@ -1,11 +1,13 @@
 <script setup lang="ts">
-  const { data: intro } = await useAsyncData(() =>
-    queryCollection('content').path('/home/intro').first()
-  )
+  import Hero from '~/components/Hero.vue'
+
+  // const { data: intro } = await useAsyncData(() =>
+  //   queryCollection('content').path('/home/intro').first()
+  // )
 </script>
 
 <template>
-  <div>nexum</div>
+  <Hero />
 </template>
 
 <style lang="scss" scoped>
