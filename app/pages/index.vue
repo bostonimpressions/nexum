@@ -8,6 +8,7 @@
 
 <template>
   <Hero />
+  <SectionSolutions />
 </template>
 
 <style lang="scss" scoped>
