@@ -51,7 +51,7 @@
 
 <script setup lang="ts">
   import { ref, onMounted, onBeforeUnmount } from 'vue'
-  import BaseHeader from '@/components/Base/BaseHeader.vue'
+  //import BaseHeader from '@/components/Base/BaseHeader.vue'
 
   // All slides in one array
   const slides = [
