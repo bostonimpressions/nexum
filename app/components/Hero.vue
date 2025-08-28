@@ -112,7 +112,7 @@
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out;
-    min-height: 800px;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     padding: 60px 0;
@@ -120,15 +120,16 @@
   .hero-row {
     display: flex;
     position: relative;
-    flex: 1; // take all remaining space below BaseHeader
-    align-items: center;
+    flex: 1;
+    padding: 40px 0;
+    //align-items: center;
   }
 
   .hero-content {
     max-width: 605px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    //justify-content: center;
     align-items: flex-start;
     gap: 27px;
     color: white;

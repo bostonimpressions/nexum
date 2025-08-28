@@ -85,6 +85,78 @@
           </li>
         </ul>
       </nav>
+      <nav class="nav-bottom">
+        <ul>
+          <li>
+            <div class="text dropdown">
+              <span>Services</span>
+              <span class="icon-caret"
+                ><img src="/icon-caret.svg" alt=""
+              /></span>
+            </div>
+          </li>
+
+          <li>
+            <div class="text dropdown">
+              <span>Solutions</span>
+              <span class="icon-caret"
+                ><img src="/icon-caret.svg" alt=""
+              /></span>
+            </div>
+          </li>
+
+          <li>
+            <div class="text dropdown">
+              <span>Partners</span>
+              <span class="icon-caret"
+                ><img src="/icon-caret.svg" alt=""
+              /></span>
+            </div>
+          </li>
+
+          <li>
+            <div class="text">
+              <span>Insights</span>
+            </div>
+          </li>
+
+          <li>
+            <div class="text dropdown">
+              <span>Company</span>
+              <span class="icon-caret"
+                ><img src="/icon-caret.svg" alt=""
+              /></span>
+            </div>
+          </li>
+
+          <li class="search">
+            <div class="icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.5 17.5L22 22"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="sr-only">Search</div>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 </template>
@@ -105,12 +177,39 @@
     li {
       display: flex;
       flex-direction: row;
+      cursor: pointer;
+    }
+    a {
+      cursor: pointer;
     }
   }
-  .icon {
-    margin: 0 10px 0 0;
+  .nav-top {
+    display: flex;
+    justify-self: flex-end;
+    font-size: 16px;
+
+    .icon {
+      margin: 0 10px 0 0;
+    }
+    .special {
+      color: var(--lightorange);
+    }
   }
-  .special {
-    color: var(--lightorange);
+  .nav-bottom {
+    display: flex;
+    justify-self: flex-end;
+    padding: 50px 0;
+    font-size: 18px;
+    ul {
+      gap: 32px;
+    }
+    .text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .icon-caret {
+      margin: 0 0 0 8px;
+    }
   }
 </style>
