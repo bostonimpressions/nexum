@@ -1,54 +1,3 @@
-<template>
-  <div
-    class="hero"
-    :style="{ backgroundImage: `url(${slides[currentSlide].background})` }"
-  >
-    <div class="container">
-      <BaseHeader />
-    </div>
-    <div class="container hero-container">
-      <div class="hero-row">
-        <div class="hero-content">
-          <transition name="fade" mode="out-in">
-            <div
-              class="hero-content"
-              :class="slides[currentSlide].theme"
-              :key="currentSlide"
-            >
-              <div v-if="slides[currentSlide].logo" class="logo">
-                <BaseLogoFirstDefense
-                  v-if="slides[currentSlide].logo === 'firstDefense'"
-                />
-              </div>
-              <div v-if="slides[currentSlide].category" class="category">
-                {{ slides[currentSlide].category }}
-              </div>
-              <h1 v-if="slides[currentSlide].title" class="title">
-                {{ slides[currentSlide].title }}
-              </h1>
-              <div
-                v-if="slides[currentSlide].content"
-                class="content"
-                v-html="slides[currentSlide].content"
-              ></div>
-              <div v-if="slides[currentSlide].link" class="link">
-                <BaseButton
-                  link
-                  :to="slides[currentSlide].link.url"
-                  :variant="slides[currentSlide].link.variant"
-                  :solid="slides[currentSlide].link.solid"
-                >
-                  {{ slides[currentSlide].link.text }}
-                </BaseButton>
-              </div>
-            </div>
-          </transition>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
   import { ref, onMounted, onBeforeUnmount } from 'vue'
   //import BaseHeader from '@/components/Base/BaseHeader.vue'
@@ -106,6 +55,61 @@
   })
 </script>
 
+<template>
+  <div
+    class="hero"
+    :style="{ backgroundImage: `url(${slides[currentSlide].background})` }"
+  >
+    <div class="container">
+      <BaseHeader />
+    </div>
+    <div class="container hero-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <transition name="fade" mode="out-in">
+            <div
+              class="hero-content"
+              :class="slides[currentSlide].theme"
+              :key="currentSlide"
+            >
+              <div v-if="slides[currentSlide].logo" class="logo">
+                <BaseLogoFirstDefense
+                  v-if="slides[currentSlide].logo === 'firstDefense'"
+                />
+              </div>
+              <div v-if="slides[currentSlide].category" class="category">
+                {{ slides[currentSlide].category }}
+              </div>
+              <h1 v-if="slides[currentSlide].title" class="title">
+                {{ slides[currentSlide].title }}
+              </h1>
+              <div
+                v-if="slides[currentSlide].content"
+                class="content"
+                v-html="slides[currentSlide].content"
+              ></div>
+              <div v-if="slides[currentSlide].link" class="link">
+                <BaseButton
+                  link
+                  :to="slides[currentSlide].link.url"
+                  :variant="slides[currentSlide].link.variant"
+                  :solid="slides[currentSlide].link.solid"
+                >
+                  {{ slides[currentSlide].link.text }}
+                </BaseButton>
+              </div>
+            </div>
+          </transition>
+        </div>
+      </div>
+    </div>
+
+    <div class="container brands">
+      <LogoSlider class="logo-slider" />
+    </div>
+  </div>
+</template>
+
 <style scoped lang="scss">
   .hero {
     background-color: var(--blue);
@@ -115,7 +119,7 @@
     min-height: 60vh;
     display: flex;
     flex-direction: column;
-    padding: 60px 0;
+    padding: 60px 0 0;
   }
   .hero-row {
     display: flex;
@@ -166,6 +170,11 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+  }
+
+  .brands {
+    position: relative;
+    bottom: -48px;
   }
 
   /* Fade animation */
