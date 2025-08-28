@@ -40,6 +40,7 @@
     border-radius: 8px;
     text-decoration: none;
     transition: all 0.2s;
+    cursor: pointer;
 
     &.outlined-light {
       border: 1.5px solid var(--lightorange);
@@ -60,12 +61,12 @@
     &.solid-light {
       background-color: var(--lightorange);
       border: none;
-      color: white;
+      color: var(--white);
     }
     &.solid-orange {
       background-color: var(--orange);
       border: none;
-      color: white;
+      color: var(--white);
     }
     &.solid-white {
       background-color: var(--white);

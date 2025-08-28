@@ -5,20 +5,46 @@
   >
     <div class="container">
       <BaseHeader />
-
-      <transition name="fade" mode="out-in">
-        <div class="hero-content" :key="currentSlide">
-          <div v-if="slides[currentSlide].logo" class="logo">
-            {{ slides[currentSlide].logo }}
-          </div>
-          <div v-if="slides[currentSlide].category" class="category">
-            {{ slides[currentSlide].category }}
-          </div>
-          <div v-if="slides[currentSlide].category" class="category">
-            {{ slides[currentSlide].category }}
-          </div>
+    </div>
+    <div class="container hero-container">
+      <div class="hero-row">
+        <div class="hero-content">
+          <transition name="fade" mode="out-in">
+            <div
+              class="hero-content"
+              :class="slides[currentSlide].theme"
+              :key="currentSlide"
+            >
+              <div v-if="slides[currentSlide].logo" class="logo">
+                <BaseLogoFirstDefense
+                  v-if="slides[currentSlide].logo === 'firstDefense'"
+                />
+              </div>
+              <div v-if="slides[currentSlide].category" class="category">
+                {{ slides[currentSlide].category }}
+              </div>
+              <h1 v-if="slides[currentSlide].title" class="title">
+                {{ slides[currentSlide].title }}
+              </h1>
+              <div
+                v-if="slides[currentSlide].content"
+                class="content"
+                v-html="slides[currentSlide].content"
+              ></div>
+              <div v-if="slides[currentSlide].link" class="link">
+                <BaseButton
+                  link
+                  :to="slides[currentSlide].link.url"
+                  :variant="slides[currentSlide].link.variant"
+                  :solid="slides[currentSlide].link.solid"
+                >
+                  {{ slides[currentSlide].link.text }}
+                </BaseButton>
+              </div>
+            </div>
+          </transition>
         </div>
-      </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -31,7 +57,7 @@
   const slides = [
     {
       background: '/hero-bg-1.jpg',
-      logo: '/logos/first-defense.png',
+      logo: 'firstDefense',
       title: `Managed & Monitored Services`,
       content: `Nexum’s first defense  can augment your team’s operations by monitoring for attacks, investigating potential breaches, proactively blocking bad actors, and keeping essential security components up to date.`,
       link: {
@@ -51,6 +77,7 @@
         variant: `orange`,
         solid: true,
       },
+      theme: 'dark',
     },
     {
       background: '/hero-bg-3.jpg',
@@ -85,19 +112,59 @@
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out;
-    padding: 60px 0; // adjust as needed
-    height: 800px;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0;
+  }
+  .hero-row {
+    display: flex;
+    position: relative;
+    flex: 1; // take all remaining space below BaseHeader
+    align-items: center;
   }
 
   .hero-content {
     max-width: 605px;
-    margin: 30px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 27px;
     color: white;
+    &.dark {
+      color: var(--blue);
+
+      .content {
+        color: var(--black);
+      }
+    }
+
+    .logo {
+      width: 283px;
+      height: 54.017px;
+      aspect-ratio: 241/46;
+    }
+
+    .category {
+      font-size: 24px;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 30px;
+    }
+
+    .content {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   /* Fade animation */
