@@ -1,11 +1,23 @@
-<script setup lang="ts"></script>
-
 <template>
-  <section class="section-connect">
-    <div class="container">
-      <h2>Connect With Us</h2>
+  <section class="section-wrapper">
+    <svg
+      class="curve-top"
+      id="Layer_2"
+      data-name="Layer 2"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1449 86.59"
+    >
+      <g id="Layer_1-2" data-name="Layer 1">
+        <path
+          class="cls-1"
+          d="M1449,77.68C909.22-24.77,592.25-27.01,0,77.68v8.92h1449v-8.92Z"
+        />
+      </g>
+    </svg>
+    <div class="section-connect">
+      <div class="container">
+        <h2>Connect With Us</h2>
 
-      <div class="solutions-slider">
         <div class="three-col-grid">
           <div class="slide-item">
             <div class="post-card">
@@ -34,30 +46,21 @@
 </template>
 
 <style scoped lang="scss">
+  .section-wrapper {
+    margin: 50px auto 0;
+  }
   .section-connect {
     position: relative;
     background: var(--lightblue);
-    padding: 100px 0 120px;
-    margin: 200px auto 0;
-    //overflow: hidden; // prevents horizontal scroll
+    padding: 70px 0 120px;
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: -100px; // move up to create the curve
-      left: 0;
-      width: 100%;
-      height: 160px; // height of the bulge
-      background-color: var(--lightblue);
-      border-top-left-radius: 50% 100%;
-      border-top-right-radius: 50% 100%;
-      z-index: -1;
+    .container {
+      position: relative;
+      z-index: 1;
+      gap: 52px;
     }
   }
 
-  .container {
-    gap: 52px;
-  }
   .three-col-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -70,11 +73,9 @@
       justify-content: center;
       text-align: center;
       height: 563px;
-      flex-shrink: 0;
-      overflow: hidden;
       background: var(--blue);
       border-radius: 8px;
-      box-shadow: 0 4px 17.3px 0 rgba(0, 48, 135, 0.23);
+      box-shadow: 0 4px 17.3px rgba(0, 48, 135, 0.23);
 
       .post-card {
         display: flex;
@@ -91,16 +92,19 @@
     }
   }
 
-  @media (min-width: 768px) {
-    .three-col-grid {
-      grid-template-columns: repeat(3, 1fr);
+  .curve-top {
+    position: relative;
+    top: 2px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 0;
+    path {
+      fill: var(--lightblue);
     }
   }
-
-  @media (min-width: 1024px) {
-    .section-connect {
-      padding: 50px 0 120px;
-    }
+  @media (min-width: 768px) {
     .three-col-grid {
       grid-template-columns: repeat(3, 1fr);
     }
