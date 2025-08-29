@@ -18,6 +18,11 @@
     gap: 32px;
     border-radius: 18px;
     background-color: var(--blue);
+    background-color: var(--blue);
+    background-image: url('/bg-darkblue.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
     color: var(--white);
 
     :deep(h2),
