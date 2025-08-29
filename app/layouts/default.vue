@@ -1,9 +1,8 @@
-<template>
-  <div>
-    <main>
-      <slot />
-    </main>
-  </div>
-</template>
-
 <script setup></script>
+
+<template>
+  <main>
+    <slot />
+  </main>
+  <BaseFooter />
+</template>
