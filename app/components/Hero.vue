@@ -116,7 +116,7 @@
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out;
-    min-height: 60vh;
+    min-height: 65vh;
     display: flex;
     flex-direction: column;
     padding: 60px 0 0;

@@ -9,6 +9,9 @@
 <template>
   <Hero />
   <SectionSolutions />
+  <SectionConnect />
+  <SectionVeterans />
+  <SectionRecentVideos />
 </template>
 
 <style lang="scss" scoped>

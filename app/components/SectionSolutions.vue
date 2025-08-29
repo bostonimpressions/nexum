@@ -75,13 +75,38 @@
         </div>
       </div>
     </div>
+    <div class="row-three">
+      <div class="container">
+        <div class="two-col-grid">
+          <div class="grid-item">
+            <h2 class="sr-only">First Defense</h2>
+            <BaseLogoFirstDefense />
+            <p>
+              Nexum is a SOC 2 Type 2-compliant Managed Security Service
+              Provider (MSSP) with a range of services to help you defend your
+              network efficiently and effectively. Most importantly,  with
+              Nexum first*defense®, our manufacturer-authorized technical
+              support team is available 24/7 via telephone, email, and web-based
+              portal.
+            </p>
+
+            <div class="button-row">
+              <BaseButton solid>Book a Demo</BaseButton>
+            </div>
+          </div>
+          <div class="grid-item">
+            <img src="/solutions-transport.png" alt="Solutions transport" />
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped lang="scss">
   .section-solutions {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 160px 0 20px;
   }
 
@@ -95,6 +120,10 @@
       display: flex;
       flex-direction: column;
       gap: 32px;
+
+      + .grid-item {
+        align-items: center;
+      }
     }
   }
 
@@ -109,6 +138,21 @@
     gap: 30px;
     margin: 30px auto;
   }
+  .row-three {
+    background-color: var(--lightblue); /* fallback color */
+    background-image: url('/bg-lightblue.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30px 0;
+    margin: 30px 0;
+
+    .two-col-grid {
+      img {
+        max-width: 500px;
+      }
+    }
+  }
 
   .three-col-grid {
     display: grid;
@@ -120,6 +164,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 20px;
+      text-align: center;
       height: 563px;
       flex-shrink: 0;
       background: var(--lightblue);
