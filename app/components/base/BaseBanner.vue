@@ -19,7 +19,7 @@
     border-radius: 18px;
     background-color: var(--blue);
     background-color: var(--blue);
-    background-image: url('/bg-darkblue.png');
+    background-image: url('/bg-darkblue.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
