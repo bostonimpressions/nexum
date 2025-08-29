@@ -88,19 +88,6 @@
       background: var(--blue);
       border-radius: 8px;
       box-shadow: 0 4px 17.3px rgba(0, 48, 135, 0.23);
-
-      .post-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        width: 100%;
-      }
-
-      .post-header {
-        background-color: white;
-        height: 100px;
-      }
     }
   }
 
