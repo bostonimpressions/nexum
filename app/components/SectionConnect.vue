@@ -37,29 +37,21 @@
   .section-connect {
     position: relative;
     background: var(--lightblue);
-    padding: 50px 0 120px;
-    margin: 100px auto 0;
+    padding: 100px 0 120px;
+    margin: 200px auto 0;
+    //overflow: hidden; // prevents horizontal scroll
 
-    &::after {
+    &::before {
       content: '';
-      border-top-left-radius: 84% 100%;
-      border-top-right-radius: 80% 100%;
       position: absolute;
-      z-index: -1;
-      width: 116%;
-      background-color: var(--lightblue);
-      height: 35%;
-      top: -84px;
-      left: -8%;
-    }
-
-    .curve-top {
-      position: absolute;
-      top: -1px;
+      top: -100px; // move up to create the curve
       left: 0;
       width: 100%;
-      height: 150px;
-      display: block;
+      height: 160px; // height of the bulge
+      background-color: var(--lightblue);
+      border-top-left-radius: 50% 100%;
+      border-top-right-radius: 50% 100%;
+      z-index: -1;
     }
   }
 

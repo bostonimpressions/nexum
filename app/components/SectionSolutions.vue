@@ -129,7 +129,14 @@
 
   .button-row {
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .grid-item {
+    img {
+      width: 100%;
+    }
   }
 
   .row-two {
@@ -156,7 +163,7 @@
 
   .three-col-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 24px;
 
     .slide-item {
@@ -180,8 +187,15 @@
     .section-solutions {
       padding: 160px 0 20px;
     }
+    .button-row {
+      flex-direction: row;
+      gap: 30px;
+    }
     .two-col-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .three-col-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 </style>

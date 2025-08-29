@@ -10,7 +10,7 @@
   .base-banner {
     display: flex;
     width: 100%;
-    padding: 120px 210px;
+    padding: 120px 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -28,6 +28,7 @@
     :deep(h2),
     :deep(p) {
       color: var(--white);
+      max-width: 575px;
     }
 
     :deep(h2) {
