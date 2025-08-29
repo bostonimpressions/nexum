@@ -20,24 +20,36 @@
 
         <div class="three-col-grid">
           <div class="slide-item">
-            <div class="post-card">
-              <div class="post-header"></div>
-              <div class="post-header"></div>
-            </div>
+            <iframe
+              src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7366485495662497792?collapsed=1"
+              height="770"
+              width="504"
+              frameborder="0"
+              allowfullscreen
+              title="Embedded post"
+            ></iframe>
           </div>
 
           <div class="slide-item">
-            <div class="post-card">
-              <div class="post-header"></div>
-              <div class="post-header"></div>
-            </div>
+            <iframe
+              src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7366485495662497792?collapsed=1"
+              height="770"
+              width="504"
+              frameborder="0"
+              allowfullscreen
+              title="Embedded post"
+            ></iframe>
           </div>
 
           <div class="slide-item">
-            <div class="post-card">
-              <div class="post-header"></div>
-              <div class="post-header"></div>
-            </div>
+            <iframe
+              src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7366485495662497792?collapsed=1"
+              height="770"
+              width="504"
+              frameborder="0"
+              allowfullscreen
+              title="Embedded post"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -90,6 +102,12 @@
         height: 100px;
       }
     }
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 
   .curve-top {
