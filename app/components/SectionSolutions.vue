@@ -107,12 +107,12 @@
   .section-solutions {
     display: flex;
     flex-direction: column;
-    padding: 160px 0 20px;
+    padding: 120px 0 20px;
   }
 
   .two-col-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 75px;
     align-items: center;
 
@@ -173,6 +173,15 @@
       .icon {
         margin: 0 0 22px;
       }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-solutions {
+      padding: 160px 0 20px;
+    }
+    .two-col-grid {
+      grid-template-columns: 1fr 1fr;
     }
   }
 </style>

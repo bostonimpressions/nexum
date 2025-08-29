@@ -39,17 +39,18 @@
   .section-recent {
     display: flex;
     flex-direction: column;
-    padding: 90px 0;
+    padding: 40px 0;
   }
 
   .container {
+    text-align: center;
     align-items: center;
     gap: 32px;
   }
 
   .four-col-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     gap: 24px;
     align-items: center;
 
@@ -60,8 +61,6 @@
     }
 
     img {
-      width: 292px;
-      height: 176px;
       flex-shrink: 0;
       border-radius: 8px;
     }
@@ -72,6 +71,21 @@
       font-weight: 400;
       line-height: normal;
       letter-spacing: 0.14px;
+    }
+  }
+
+  @media (min-width: 500px) {
+    .four-col-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-recent {
+      padding: 90px 0;
+    }
+    .four-col-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 </style>

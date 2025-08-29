@@ -68,7 +68,7 @@
   }
   .three-col-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 24px;
 
     .slide-item {
@@ -96,6 +96,21 @@
         background-color: white;
         height: 100px;
       }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .three-col-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-connect {
+      padding: 50px 0 120px;
+    }
+    .three-col-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 </style>
