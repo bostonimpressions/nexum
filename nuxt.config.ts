@@ -17,6 +17,16 @@ export default defineNuxtConfig({
       }
     }
   },
+  app: {
+    head: {
+      script: [
+        {
+          src: 'https://elfsightcdn.com/platform.js',
+          async: true,
+        },
+      ],
+    },
+  },
 
   modules: [
     '@nuxt/eslint',

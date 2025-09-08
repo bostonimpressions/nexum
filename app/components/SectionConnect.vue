@@ -18,7 +18,13 @@
       <div class="container">
         <h2>Connect With Us</h2>
 
-        <div class="three-col-grid">
+        <!-- Elfsight LinkedIn Feed | Untitled LinkedIn Feed -->
+        <div
+          class="elfsight-app-117def64-9e13-4c5b-88ea-0fc9161883ab"
+          data-elfsight-app-lazy
+        ></div>
+
+        <!-- <div class="three-col-grid">
           <div class="slide-item">
             <iframe
               src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7366485495662497792?collapsed=1"
@@ -51,7 +57,7 @@
               title="Embedded post"
             ></iframe>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

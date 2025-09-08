@@ -1,4 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  const solutions = [
+    {
+      name: `Enterprise & Network Security`,
+      icon: `/icon-network-security.png`,
+    },
+    {
+      name: `Cloud Security`,
+      icon: `/icon-cloud-security.png`,
+    },
+    {
+      name: `Identity & Access`,
+      icon: `/icon-identity-access.png`,
+    },
+  ]
+</script>
 
 <template>
   <section class="section-solutions">
@@ -45,30 +60,12 @@
 
         <div class="solutions-slider">
           <div class="three-col-grid">
-            <div class="slide-item">
+            <div v-for="solution in solutions" class="slide-item">
               <div class="icon">
-                <img src="/solution-icon.png" alt="" />
+                <img :src="solution.icon" :alt="solution.name" />
               </div>
               <div class="label">
-                <h3>Enterprise & Network Security</h3>
-              </div>
-            </div>
-
-            <div class="slide-item">
-              <div class="icon">
-                <img src="/solution-icon.png" alt="" />
-              </div>
-              <div class="label">
-                <h3>Enterprise & Network Security</h3>
-              </div>
-            </div>
-
-            <div class="slide-item">
-              <div class="icon">
-                <img src="/solution-icon.png" alt="" />
-              </div>
-              <div class="label">
-                <h3>Enterprise & Network Security</h3>
+                <h3>{{ solution.name }}</h3>
               </div>
             </div>
           </div>
@@ -179,6 +176,8 @@
 
       .icon {
         margin: 0 0 22px;
+        width: 120px;
+        height: 120px;
       }
     }
   }
