@@ -58,18 +58,7 @@
           with custom security and cloud solutions.
         </p>
 
-        <div class="solutions-slider">
-          <div class="three-col-grid">
-            <div v-for="solution in solutions" class="slide-item">
-              <div class="icon">
-                <img :src="solution.icon" :alt="solution.name" />
-              </div>
-              <div class="label">
-                <h3>{{ solution.name }}</h3>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SolutionsSwiper />
       </div>
     </div>
     <div class="row-three">
@@ -158,29 +147,12 @@
     }
   }
 
-  .three-col-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
+  // .three-col-grid {
+  //   display: grid;
+  //   grid-template-columns: 1fr;
+  //   gap: 24px;
 
-    .slide-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
-      height: 563px;
-      flex-shrink: 0;
-      background: var(--lightblue);
-
-      .icon {
-        margin: 0 0 22px;
-        width: 120px;
-        height: 120px;
-      }
-    }
-  }
+  // }
 
   @media (min-width: 1024px) {
     .section-solutions {
