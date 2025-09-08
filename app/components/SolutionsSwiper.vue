@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { Swiper, SwiperSlide } from 'swiper/vue'
   import { Navigation } from 'swiper/modules'
-
   import 'swiper/css'
   import 'swiper/css/navigation'
 
@@ -12,8 +11,8 @@
     },
     { name: 'Cloud Security', icon: '/icon-cloud-security.png' },
     { name: 'Identity & Access', icon: '/icon-identity-access.png' },
-    { name: '[solution name]', icon: '/icon-network-security.png' },
-    { name: '[solution name]', icon: '/icon-datacenter.png' },
+    { name: 'Strategy & Advisory', icon: '/icon-strategy.png' },
+    { name: 'Data Protection', icon: '/icon-data-protection.png' },
   ]
 </script>
 
@@ -25,7 +24,9 @@
       :space-between="20"
       :loop="true"
       :navigation="{ nextEl: '.custom-next', prevEl: '.custom-prev' }"
-      :breakpoints="{ 768: { slidesPerView: 3 } }"
+      :breakpoints="{ 0: { slidesPerView: 1 }, 768: { slidesPerView: 3 } }"
+      :observer="true"
+      :observeParents="true"
       class="solutions-slider"
     >
       <SwiperSlide v-for="(slide, i) in slides" :key="i" class="slide-item">
@@ -38,7 +39,6 @@
       </SwiperSlide>
     </Swiper>
 
-    <!-- Custom navigation buttons -->
     <div class="custom-prev">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -93,9 +93,7 @@
 <style scoped lang="scss">
   .solutions-slider-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 20px;
 
     .solutions-slider {
       width: 100%;
@@ -119,7 +117,6 @@
       }
     }
 
-    /* Custom navigation buttons */
     .custom-prev,
     .custom-next {
       position: absolute;
@@ -144,6 +141,12 @@
     }
     .custom-next {
       right: -26px;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    .solutions-slider-wrapper {
+      margin: 0 auto;
     }
   }
 </style>

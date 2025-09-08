@@ -77,6 +77,10 @@
       z-index: 1;
       gap: 52px;
     }
+
+    h2 {
+      margin: 0 0 30px;
+    }
   }
 
   .three-col-grid {
