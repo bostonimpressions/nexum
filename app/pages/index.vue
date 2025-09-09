@@ -1,13 +1,8 @@
-<script setup lang="ts">
-  import Hero from '~/components/Hero.vue'
-
-  // const { data: intro } = await useAsyncData(() =>
-  //   queryCollection('content').path('/home/intro').first()
-  // )
-</script>
+<!-- homepage -->
+<script setup lang="ts"></script>
 
 <template>
-  <Hero />
+  <HeroSlideshow />
   <SectionSolutions />
   <SectionConnect />
   <SectionVeterans />

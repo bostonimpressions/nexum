@@ -6,14 +6,14 @@
       <BaseHeader />
     </div>
     <div class="container hero-container">
-      <div class="hero-row">
-        <div class="hero-content"></div>
-        <h1>Achieve Stability Throughout Your Infrastructure (our Services)</h1>
-        <p>
-          Ensure consistent security, reliability, and performance across your
-          entire IT infrastructure with robust cybersecurity solutions. Protect
-          your systems from threats while maintaining operational stability
-        </p>
+      <div class="hero-content">
+        <div class="logo">
+          <slot name="logo" />
+        </div>
+
+        <h1 class="title">
+          <slot name="heading" />
+        </h1>
       </div>
     </div>
   </div>
@@ -23,50 +23,40 @@
   .hero {
     background:
       linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
-      url('/hero-bg-4.jpg');
+      url('/hero-subpage-bg.jpg');
     background-color: var(--blue);
     background-size: cover;
     background-position: center;
     min-height: 45vh;
     display: flex;
     flex-direction: column;
-    padding: 60px 0 0;
+    padding: 60px 0 80px;
     color: var(--white);
   }
   h1,
   p {
     color: var(--white);
   }
-  .hero-row {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    position: relative;
-    flex: 1;
-    padding: 40px 0;
-    //align-items: center;
-  }
 
   .hero-content {
-    max-width: 605px;
+    max-width: 1040px;
     display: flex;
     flex-direction: column;
-    //justify-content: center;
     align-items: flex-start;
     gap: 27px;
-    color: white;
-
-    .content {
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 24px;
-    }
   }
 
   .hero-container {
     display: flex;
     flex-direction: column;
     flex: 1;
+    justify-content: flex-end;
+    margin-top: auto;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      padding: 60px 0 120px;
+    }
   }
 </style>
