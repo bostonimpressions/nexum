@@ -7,6 +7,7 @@
     to?: string
     solid?: boolean
     variant?: 'light' | 'orange' | 'white'
+    arrow?: boolean
   }
 
   const props = defineProps<Props>()
@@ -26,6 +27,7 @@
   >
     <div class="link-text">
       <slot />
+      <span v-if="props.arrow" class="arrow">→</span>
     </div>
   </component>
 </template>
@@ -76,6 +78,10 @@
 
     &:hover {
       opacity: 0.9;
+
+      .arrow {
+        transform: translateX(5px);
+      }
     }
   }
 
@@ -87,5 +93,10 @@
     transition:
       transform 0.2s,
       color 0.2s;
+
+    .arrow {
+      display: inline-block;
+      transition: transform 0.2s;
+    }
   }
 </style>

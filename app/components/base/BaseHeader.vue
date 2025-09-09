@@ -6,7 +6,9 @@
 <template>
   <header class="base-header">
     <div class="branding">
-      <BaseLogo />
+      <NuxtLink to="/">
+        <BaseLogo />
+      </NuxtLink>
     </div>
 
     <button
