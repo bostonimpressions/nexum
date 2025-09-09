@@ -43,6 +43,8 @@
   }
 
   .container {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     align-items: center;
     gap: 32px;
@@ -58,6 +60,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      text-align: left;
     }
 
     img {
@@ -82,7 +85,7 @@
 
   @media (min-width: 1024px) {
     .section-recent {
-      padding: 90px 0;
+      padding: 40px 0 90px;
     }
     .four-col-grid {
       grid-template-columns: repeat(4, 1fr);

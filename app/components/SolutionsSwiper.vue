@@ -94,6 +94,7 @@
   .solutions-slider-wrapper {
     position: relative;
     margin: 0 20px;
+    max-width: 1240px;
 
     .solutions-slider {
       width: 100%;

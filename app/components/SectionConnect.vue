@@ -77,10 +77,11 @@
       z-index: 1;
       gap: 52px;
     }
+  }
 
-    h2 {
-      margin: 0 0 30px;
-    }
+  h2 {
+    margin: 0 0 30px;
+    text-align: center;
   }
 
   .three-col-grid {
@@ -122,6 +123,9 @@
   @media (min-width: 768px) {
     .three-col-grid {
       grid-template-columns: repeat(3, 1fr);
+    }
+    h2 {
+      text-align: left;
     }
   }
 </style>
