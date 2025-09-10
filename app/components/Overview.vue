@@ -1,6 +1,6 @@
 <template>
-  <section class="overview">
-    <div class="container">
+  <section class="overview container">
+    <div class="floating-box">
       <slot />
     </div>
   </section>
@@ -8,20 +8,14 @@
 
 <style scoped lang="scss">
   .overview {
-    .container {
-      position: relative;
+    &.container {
       top: -50px;
-      display: flex;
-      padding: 11px 27px 18px 27px;
-      border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 4px 21px 0 rgba(0, 0, 0, 0.09);
     }
   }
 
   @media (min-width: 768px) {
     .overview {
-      .container {
+      &.container {
         top: -80px;
       }
     }

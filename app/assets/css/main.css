@@ -109,6 +109,16 @@ p {
   margin: 0 auto;
 }
 
+.floating-box {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  padding: 30px !important;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 21px 0 rgba(0, 0, 0, 0.09);
+}
+
 @media (min-width: 1280px) {
   .container {
     padding: 0;
