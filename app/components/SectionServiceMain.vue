@@ -16,7 +16,9 @@
             </p>
 
             <div class="button-row">
-              <BaseButton outlined arrow>Learn More</BaseButton>
+              <BaseButton link to="/services/first-defense" outlined arrow
+                >Learn More</BaseButton
+              >
             </div>
           </div>
           <div class="grid-item">

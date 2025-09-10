@@ -23,7 +23,7 @@
   .hero {
     background:
       linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
-      url('/hero-subpage-bg.jpg');
+      url('/heros/hero-bg-subpage.jpg');
     background-color: var(--blue);
     background-size: cover;
     background-position: center;
@@ -39,7 +39,7 @@
   }
 
   .hero-content {
-    max-width: 1040px;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

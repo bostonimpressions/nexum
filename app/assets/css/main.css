@@ -118,9 +118,14 @@ p {
   background: #fff;
   box-shadow: 0 4px 21px 0 rgba(0, 0, 0, 0.09);
 }
-
+.section-one {
+  margin: 50px auto;
+}
 @media (min-width: 1280px) {
   .container {
     padding: 0;
+  }
+  .section-one {
+    margin: 90px auto;
   }
 }

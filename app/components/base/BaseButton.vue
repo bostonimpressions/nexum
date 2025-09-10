@@ -34,7 +34,7 @@
 
 <style scoped lang="scss">
   .base-button {
-    display: flex;
+    display: inline-flex;
     padding: 16px 20px;
     justify-content: center;
     align-items: center;

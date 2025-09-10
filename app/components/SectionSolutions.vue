@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="grid-item">
-            <img src="/solutions-circle.jpg" alt="Solutions" />
+            <CircleOfSolutions />
           </div>
         </div>
       </div>

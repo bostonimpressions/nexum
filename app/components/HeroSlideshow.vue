@@ -5,7 +5,7 @@
   // All slides in one array
   const slides = [
     {
-      background: '/hero-bg-1.jpg',
+      background: '/heros/hero-slide-bg-1.jpg',
       logo: 'firstDefense',
       title: `Managed & Monitored Services`,
       content: `Nexum’s first defense  can augment your team’s operations by monitoring for attacks, investigating potential breaches, proactively blocking bad actors, and keeping essential security components up to date.`,
@@ -16,7 +16,7 @@
       },
     },
     {
-      background: '/hero-bg-2.jpg',
+      background: '/heros/hero-slide-bg-2.jpg',
       category: `Solutions`,
       title: `Custom Security Solutions`,
       content: `Nexum’s custom security, cloud, and network solutions mitigate risk and protect your IT and information assets, from enterprise and network security to strategy and advisory services. Protect your IT with custom security and cloud solutions.`,
@@ -29,7 +29,7 @@
       theme: 'dark',
     },
     {
-      background: '/hero-bg-3.jpg',
+      background: '/heros/hero-slide-bg-3.jpg',
       category: `Services`,
       title: `Security Assessment`,
       content: `Nexum’s risk management services help you identify, evaluate, rate, and remediate security and continuity vulnerabilities. Our experienced engineers can perform a multi-point, holistic health check of your security posture.`,

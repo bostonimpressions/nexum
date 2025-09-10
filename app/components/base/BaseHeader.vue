@@ -107,21 +107,21 @@
       <nav class="nav-bottom">
         <ul>
           <li>
-            <div class="text dropdown">
+            <NuxtLink to="/services" class="text dropdown flex items-center">
               <span>Services</span>
-              <span class="icon-caret"
-                ><img src="/icon-caret.svg" alt=""
-              /></span>
-            </div>
+              <span class="icon-caret">
+                <img src="/icon-caret.svg" alt="" />
+              </span>
+            </NuxtLink>
           </li>
 
           <li>
-            <div class="text dropdown">
+            <NuxtLink to="/solutions" class="text dropdown flex items-center">
               <span>Solutions</span>
-              <span class="icon-caret"
-                ><img src="/icon-caret.svg" alt=""
-              /></span>
-            </div>
+              <span class="icon-caret">
+                <img src="/icon-caret.svg" alt="" />
+              </span>
+            </NuxtLink>
           </li>
 
           <li>
@@ -134,9 +134,11 @@
           </li>
 
           <li>
-            <div class="text">
-              <span>Insights</span>
-            </div>
+            <NuxtLink to="/insights" class="text dropdown flex items-center">
+              <div class="text">
+                <span>Insights</span>
+              </div>
+            </NuxtLink>
           </li>
 
           <li>
