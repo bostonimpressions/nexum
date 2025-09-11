@@ -119,7 +119,7 @@
         display: flex;
         gap: 16px;
         font-size: 14px;
-        color: #888;
+        color: var(--gray);
       }
 
       .event-btn {
