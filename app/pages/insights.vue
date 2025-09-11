@@ -15,7 +15,7 @@
     title: `Blog Post ${i + 1}`,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel risus eget eros feugiat.',
-    image: `https://picsum.photos/seed/${i + 1}/400/250`,
+    image: `https://picsum.photos/seed/${i + 1}/400/400`,
     link: '#',
   }))
 
@@ -70,6 +70,7 @@
     padding: 16px;
     display: flex;
     flex-direction: column;
+    gap: 12px;
     background: #fff;
     border-radius: 10px;
     border: 1px solid #e4e8ee;
@@ -81,21 +82,25 @@
 
     .blog-image {
       width: 100%;
-      height: auto;
+      height: 250px;
+      object-fit: cover;
       border-radius: 8px;
-      margin-bottom: 12px;
     }
 
     h4 {
+      color: var(--gray);
       font-size: 1.25rem;
-      margin: 0 0 8px;
     }
 
     p {
-      flex: 1;
-      font-size: 0.95rem;
-      margin: 0 0 12px;
-      color: #555;
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 18px;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .read-more {
