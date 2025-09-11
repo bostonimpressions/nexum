@@ -84,6 +84,7 @@
       width: 100%;
       height: 250px;
       object-fit: cover;
+      object-position: center 70%;
       border-radius: 8px;
     }
 
