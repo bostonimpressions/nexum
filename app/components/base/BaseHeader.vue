@@ -328,7 +328,13 @@
   }
   li.all-link {
     a {
-      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 2px 10px;
+      margin: 0 0 0 -5px;
+      border-radius: 5px;
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.5);
+      }
     }
   }
   .dropdown-parent {
