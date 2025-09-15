@@ -165,7 +165,9 @@
 
             <transition name="slide">
               <ul v-if="openDropdown === 'services'" class="dropdown-menu">
-                <li><NuxtLink to="/services">See All</NuxtLink></li>
+                <li class="all-link">
+                  <NuxtLink to="/services">All Services</NuxtLink>
+                </li>
                 <li>
                   <NuxtLink to="/services/first-defense"
                     >First Defense</NuxtLink
@@ -324,12 +326,17 @@
       }
     }
   }
+  li.all-link {
+    a {
+      font-weight: 600;
+    }
+  }
   .dropdown-parent {
     position: relative;
 
     .dropdown-menu {
       position: absolute;
-      top: 100%;
+      top: 40px;
       left: 0;
       background: var(--blue);
       padding: 10px 0;
@@ -349,6 +356,19 @@
             color: var(--lightorange);
           }
         }
+      }
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -10px;
+        left: 25px;
+        margin-left: -10px;
+        border-style: solid;
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent var(--blue) transparent;
       }
     }
   }
