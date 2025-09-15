@@ -1,6 +1,36 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, onMounted, onBeforeUnmount } from 'vue'
+
   const isOpen = ref(false)
+  const openDropdown = ref(null)
+
+  function toggleDropdown(name) {
+    openDropdown.value = openDropdown.value === name ? null : name
+  }
+
+  // Close dropdown when clicking outside
+  function handleClickOutside(e) {
+    if (!e.target.closest('.dropdown-parent')) {
+      openDropdown.value = null
+    }
+  }
+
+  // Close on ESC
+  function handleKeyDown(e) {
+    if (e.key === 'Escape') {
+      openDropdown.value = null
+    }
+  }
+
+  onMounted(() => {
+    document.addEventListener('click', handleClickOutside)
+    document.addEventListener('keydown', handleKeyDown)
+  })
+
+  onBeforeUnmount(() => {
+    document.removeEventListener('click', handleClickOutside)
+    document.removeEventListener('keydown', handleKeyDown)
+  })
 </script>
 
 <template>
@@ -106,13 +136,27 @@
       </nav>
       <nav class="nav-bottom">
         <ul>
-          <li>
-            <NuxtLink to="/services" class="text dropdown flex items-center">
+          <li
+            class="dropdown-parent"
+            :class="{ 'dropdown-open': openDropdown === 'services' }"
+          >
+            <div class="text dropdown" @click.stop="toggleDropdown('services')">
               <span>Services</span>
               <span class="icon-caret">
                 <img src="/icon-caret.svg" alt="" />
               </span>
-            </NuxtLink>
+            </div>
+
+            <transition name="slide">
+              <ul v-if="openDropdown === 'services'" class="dropdown-menu">
+                <li><NuxtLink to="/services">See All</NuxtLink></li>
+                <li>
+                  <NuxtLink to="/services/first-defense"
+                    >First Defense</NuxtLink
+                  >
+                </li>
+              </ul>
+            </transition>
           </li>
 
           <li>
@@ -212,31 +256,6 @@
     display: flex;
     flex-direction: column;
     align-items: end;
-
-    @media (max-width: 768px) {
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 300px;
-      background: #111;
-      flex-direction: column;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      padding: 2rem;
-      z-index: 1000;
-
-      &.open {
-        transform: translateX(0);
-      }
-
-      nav {
-        ul {
-          flex-direction: column;
-          gap: 20px;
-        }
-      }
-    }
   }
   ul {
     display: flex;
@@ -281,11 +300,69 @@
     }
     .icon-caret {
       margin: 0 0 0 8px;
+      transition: transform 0.15s ease;
+    }
+    .dropdown-open {
+      .icon-caret {
+        transform: rotate(180deg);
+      }
     }
   }
+  .dropdown-parent {
+    position: relative;
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--blue);
+      padding: 10px 0;
+      display: flex;
+      gap: 0;
+      flex-direction: column;
+      min-width: 200px;
+      border-radius: 4px;
+      z-index: 1002;
+
+      li {
+        padding: 10px 20px;
+        a {
+          color: var(--white);
+          text-decoration: none;
+          &:hover {
+            color: var(--lightorange);
+          }
+        }
+      }
+    }
+  }
+
   @media (max-width: 768px) {
     .navigation {
       align-items: flex-start;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 300px;
+      background: #111;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      padding: 2rem;
+      z-index: 1000;
+
+      &.open {
+        transform: translateX(0);
+      }
+
+      nav {
+        ul {
+          flex-direction: column;
+          gap: 20px;
+          width: 100%;
+        }
+      }
     }
     .hamburger {
       display: flex;
@@ -294,6 +371,43 @@
     .nav-top,
     .nav-bottom {
       padding: 20px 0;
+    }
+    .nav-bottom {
+      width: 100%;
+    }
+
+    .dropdown-parent {
+      width: 100%;
+      flex-direction: column;
+
+      .dropdown-menu {
+        position: relative;
+        top: auto;
+        left: auto;
+        //min-width: unset;
+        width: 100%;
+        //background: none;
+        //padding: 0;
+        border-radius: 0;
+        overflow: hidden;
+      }
+    }
+
+    .slide-enter-active,
+    .slide-leave-active {
+      transition:
+        max-height 0.3s ease,
+        opacity 0.05s ease;
+    }
+    .slide-enter-from,
+    .slide-leave-to {
+      max-height: 0;
+      opacity: 0;
+    }
+    .slide-enter-to,
+    .slide-leave-from {
+      max-height: 500px;
+      opacity: 1;
     }
   }
 </style>
