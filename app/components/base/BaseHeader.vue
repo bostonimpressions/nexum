@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, onMounted, onBeforeUnmount } from 'vue'
+  import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 
   const isOpen = ref(false)
   const openDropdown = ref(null)
@@ -35,6 +35,14 @@
   onBeforeUnmount(() => {
     document.removeEventListener('click', handleClickOutside)
     document.removeEventListener('keydown', handleKeyDown)
+  })
+
+  watch(isOpen, (val) => {
+    if (val) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
   })
 </script>
 
@@ -366,6 +374,7 @@
       transition: transform 0.3s ease;
       padding: 15px;
       z-index: 1000;
+      overflow-y: auto;
 
       &.open {
         transform: translateX(0);
