@@ -8,17 +8,22 @@
     openDropdown.value = openDropdown.value === name ? null : name
   }
 
-  // Close dropdown when clicking outside
+  function closeAll() {
+    isOpen.value = false
+    openDropdown.value = null
+  }
+
+  // Close dropdown/drawer when clicking outside
   function handleClickOutside(e) {
-    if (!e.target.closest('.dropdown-parent')) {
-      openDropdown.value = null
+    if (!e.target.closest('.navigation') && !e.target.closest('.hamburger')) {
+      closeAll()
     }
   }
 
   // Close on ESC
   function handleKeyDown(e) {
     if (e.key === 'Escape') {
-      openDropdown.value = null
+      closeAll()
     }
   }
 
@@ -50,6 +55,9 @@
       <span></span>
       <span></span>
     </button>
+
+    <!-- overlay -->
+    <div v-if="isOpen" class="nav-overlay"></div>
 
     <!-- nav -->
     <div class="navigation" :class="{ open: isOpen }">
@@ -241,7 +249,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1001; // keeps button above menu
+    z-index: 1001;
 
     span {
       display: block;
@@ -338,8 +346,14 @@
   }
 
   @media (max-width: 768px) {
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
+      z-index: 999;
+    }
     .navigation {
-      align-items: flex-start;
       position: fixed;
       top: 0;
       right: 0;
@@ -347,9 +361,10 @@
       width: 300px;
       background: #111;
       flex-direction: column;
+      align-items: flex-start;
       transform: translateX(100%);
       transition: transform 0.3s ease;
-      padding: 2rem;
+      padding: 15px;
       z-index: 1000;
 
       &.open {
@@ -359,8 +374,11 @@
       nav {
         ul {
           flex-direction: column;
-          gap: 20px;
+          gap: 5px;
           width: 100%;
+          > li {
+            padding: 10px 15px;
+          }
         }
       }
     }
@@ -380,16 +398,23 @@
       width: 100%;
       flex-direction: column;
 
+      &.dropdown-open {
+        background-color: #282828;
+        border-radius: 5px;
+      }
+
       .dropdown-menu {
         position: relative;
         top: auto;
         left: auto;
-        //min-width: unset;
         width: 100%;
-        //background: none;
-        //padding: 0;
+        background: none;
+        padding: 10px 0 0;
         border-radius: 0;
         overflow: hidden;
+        li {
+          padding: 10px;
+        }
       }
     }
 
