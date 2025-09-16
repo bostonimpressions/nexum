@@ -157,4 +157,24 @@
       ),
       url('/heros/hero-bg-contact.jpg') !important;
   }
+  .hero-careers {
+    background-image:
+      linear-gradient(
+        148deg,
+        rgba(0, 0, 0, 0.8) 19.14%,
+        rgba(0, 0, 0, 0) 123.59%
+      ),
+      url('/heros/hero-bg-careers.jpg') !important;
+  }
+  .hero-veterans {
+    background-image:
+      linear-gradient(180deg, rgba(0, 48, 135, 0) 52%, #003087 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 165%),
+      url('/heros/hero-bg-veterans.jpg') !important;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply, normal, normal;
+  }
 </style>
