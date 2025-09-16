@@ -1,11 +1,36 @@
 <script setup>
-  import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+  import { ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 
   const isOpen = ref(false)
   const openDropdown = ref(null)
 
   function toggleDropdown(name) {
     openDropdown.value = openDropdown.value === name ? null : name
+
+    // After DOM updates, check if it overflows
+    nextTick(() => {
+      if (openDropdown.value) {
+        adjustDropdown(openDropdown.value)
+      }
+    })
+  }
+
+  function adjustDropdown(name) {
+    const parent = document.querySelector(
+      `.dropdown-parent.dropdown-open .dropdown-menu`
+    )
+    if (!parent) return
+
+    // reset styles before measuring
+    parent.style.left = ''
+    parent.style.right = ''
+
+    const rect = parent.getBoundingClientRect()
+    const overflow = rect.right - window.innerWidth
+
+    if (overflow > 0) {
+      parent.style.left = `${parent.offsetLeft - overflow}px`
+    }
   }
 
   function closeAll() {
@@ -27,14 +52,22 @@
     }
   }
 
+  function handleResize() {
+    if (openDropdown.value) {
+      adjustDropdown(openDropdown.value)
+    }
+  }
+
   onMounted(() => {
     document.addEventListener('click', handleClickOutside)
     document.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('resize', handleResize)
   })
 
   onBeforeUnmount(() => {
     document.removeEventListener('click', handleClickOutside)
     document.removeEventListener('keydown', handleKeyDown)
+    window.removeEventListener('resize', handleResize)
   })
 
   watch(isOpen, (val) => {
