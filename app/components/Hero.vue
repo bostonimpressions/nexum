@@ -80,7 +80,6 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    min-height: 45vh;
     display: flex;
     flex-direction: column;
     padding: 60px 0;
@@ -103,9 +102,19 @@
   .hero-container {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    justify-content: flex-end;
-    margin-top: auto;
+
+    margin-top: 60px;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      min-height: 45vh;
+    }
+    .hero-container {
+      flex: 1;
+      justify-content: flex-end;
+      margin-top: auto;
+    }
   }
 
   .hero-default {
@@ -131,5 +140,21 @@
     :deep(p) {
       color: var(--blue);
     }
+  }
+  .hero-contact {
+    .hero-content {
+      max-width: 400px;
+    }
+    .hero-container {
+      justify-content: flex-start;
+    }
+    background-position: 50% 100%;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(0, 48, 135, 0.6) 0%,
+        rgba(0, 48, 135, 0) 100%
+      ),
+      url('/heros/hero-bg-contact.jpg') !important;
   }
 </style>
