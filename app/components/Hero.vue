@@ -50,7 +50,7 @@
       default:
         imageUrl = '/heros/hero-bg-default.jpg'
     }
-    return `linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 100%), url('${imageUrl}')`
+    return `linear-gradient(0deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 100%), url('${imageUrl}')`
   })
 
   // Optional: theme class for text styles
@@ -108,12 +108,28 @@
     margin-top: auto;
   }
 
-  /* Example theme overrides */
-  .hero-solutions {
-    color: var(--orange);
+  .hero-default {
+    background-image:
+      linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
+      url('/heros/hero-bg-default.jpg') !important;
   }
   .hero-about {
-    color: var(--blue);
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(0, 48, 135, 0.57) 0%,
+        rgba(0, 48, 135, 0) 48.08%
+      ),
+      linear-gradient(
+        254deg,
+        rgba(221, 242, 255, 0) 0.69%,
+        rgba(221, 242, 255, 0.77) 77.02%
+      ),
+      url('/heros/hero-bg-about.jpg') !important;
+
+    :deep(h1),
+    :deep(p) {
+      color: var(--blue);
+    }
   }
-  /* Add more theme-specific text styles if needed */
 </style>

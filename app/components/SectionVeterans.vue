@@ -16,7 +16,7 @@
           <br />
           We take great pride in this designation, contribute to veteran
           organizations, and support our current veteran team members. In fact,
-          11% of Nexum employees are veterans or first responders.1
+          11% of Nexum employees are veterans or first responders.
         </p>
         <BaseButton>Read More</BaseButton>
       </BaseBanner>

@@ -221,13 +221,39 @@
             </transition>
           </li>
 
-          <li>
-            <div class="text dropdown">
+          <li
+            class="dropdown-parent"
+            :class="{ 'dropdown-open': openDropdown === 'company' }"
+          >
+            <div class="text dropdown" @click.stop="toggleDropdown('company')">
               <span>Company</span>
-              <span class="icon-caret"
-                ><img src="/icon-caret.svg" alt=""
-              /></span>
+              <span class="icon-caret">
+                <img src="/icon-caret.svg" alt="" />
+              </span>
             </div>
+
+            <transition name="slide">
+              <ul v-if="openDropdown === 'company'" class="dropdown-menu">
+                <li>
+                  <NuxtLink to="/company/about-us">About Us</NuxtLink>
+                </li>
+                <li>
+                  <NuxtLink to="/company/contact-us">Contact Us</NuxtLink>
+                </li>
+                <li>
+                  <NuxtLink to="/company/careers">Careers</NuxtLink>
+                </li>
+                <li>
+                  <NuxtLink to="/company/veterans">Veterans</NuxtLink>
+                </li>
+                <li>
+                  <NuxtLink to="/company/leadership">Leadership</NuxtLink>
+                </li>
+                <li>
+                  <NuxtLink to="/company/branding">Branding</NuxtLink>
+                </li>
+              </ul>
+            </transition>
           </li>
 
           <li class="search">

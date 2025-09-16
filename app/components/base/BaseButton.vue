@@ -6,7 +6,7 @@
     link?: boolean
     to?: string
     solid?: boolean
-    variant?: 'light' | 'orange' | 'white'
+    variant?: 'light' | 'orange' | 'white' | 'blue'
     arrow?: boolean
   }
 
@@ -45,6 +45,7 @@
     transition: all 0.2s;
     cursor: pointer;
 
+    /* Outlined Variants */
     &.outlined-light {
       border: 1.5px solid var(--lightorange);
       background-color: transparent;
@@ -60,7 +61,13 @@
       background-color: transparent;
       color: var(--white);
     }
+    &.outlined-blue {
+      border: 1.5px solid var(--blue);
+      background-color: transparent;
+      color: var(--blue);
+    }
 
+    /* Solid Variants */
     &.solid-light {
       background-color: var(--lightorange);
       border: none;
@@ -75,6 +82,11 @@
       background-color: var(--white);
       border: none;
       color: var(--orange);
+    }
+    &.solid-blue {
+      background-color: var(--blue);
+      border: none;
+      color: var(--white);
     }
 
     &:hover {
