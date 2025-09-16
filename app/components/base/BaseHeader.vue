@@ -180,27 +180,45 @@
           <li>
             <NuxtLink to="/solutions" class="text dropdown flex items-center">
               <span>Solutions</span>
+              <!-- <span class="icon-caret">
+                <img src="/icon-caret.svg" alt="" />
+              </span> -->
+            </NuxtLink>
+          </li>
+
+          <li>
+            <NuxtLink to="/partners" class="text dropdown flex items-center">
+              <span>Partners</span>
+              <!-- <span class="icon-caret">
+                <img src="/icon-caret.svg" alt="" />
+              </span> -->
+            </NuxtLink>
+          </li>
+
+          <li
+            class="dropdown-parent"
+            :class="{ 'dropdown-open': openDropdown === 'insights' }"
+          >
+            <div class="text dropdown" @click.stop="toggleDropdown('insights')">
+              <span>Insights</span>
               <span class="icon-caret">
                 <img src="/icon-caret.svg" alt="" />
               </span>
-            </NuxtLink>
-          </li>
-
-          <li>
-            <div class="text dropdown">
-              <span>Partners</span>
-              <span class="icon-caret"
-                ><img src="/icon-caret.svg" alt=""
-              /></span>
             </div>
-          </li>
 
-          <li>
-            <NuxtLink to="/insights" class="text dropdown flex items-center">
-              <div class="text">
-                <span>Insights</span>
-              </div>
-            </NuxtLink>
+            <transition name="slide">
+              <ul v-if="openDropdown === 'insights'" class="dropdown-menu">
+                <li>
+                  <NuxtLink to="/insights/blog">Blog</NuxtLink>
+                </li>
+                <li>
+                  <NuxtLink to="/insights/events">Events</NuxtLink>
+                </li>
+                <li>
+                  <NuxtLink to="/insights/news">News</NuxtLink>
+                </li>
+              </ul>
+            </transition>
           </li>
 
           <li>

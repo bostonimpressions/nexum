@@ -31,7 +31,7 @@
 
 <template>
   <Hero>
-    <h1>Blogs</h1>
+    <h1>Blog</h1>
     <p>
       Discover insightful articles, expert opinions, and the latest trends on
       our blog. Stay informed, inspired, and engaged with fresh content across
@@ -114,10 +114,5 @@
         text-decoration: underline;
       }
     }
-  }
-
-  .load-more {
-    margin-top: 32px;
-    text-align: center;
   }
 </style>

@@ -150,6 +150,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
+    margin: 0 0 26px;
   }
 
   .news-card {
@@ -200,10 +201,5 @@
         text-decoration: underline;
       }
     }
-  }
-
-  .load-more {
-    margin-top: 32px;
-    text-align: center;
   }
 </style>

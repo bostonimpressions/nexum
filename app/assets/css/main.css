@@ -121,6 +121,15 @@ p {
 .section-one {
   margin: 50px auto;
 }
+.section-one .container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.load-more {
+  text-align: center;
+}
 @media (min-width: 1280px) {
   .container {
     padding: 0;
