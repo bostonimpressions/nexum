@@ -12,6 +12,7 @@
       | 'careers'
       | 'veterans'
       | 'leadership'
+      | 'branding'
   }>()
 
   const theme = props.theme || 'default'
@@ -46,6 +47,9 @@
         break
       case 'leadership':
         imageUrl = '/heros/hero-bg-leadership.jpg'
+        break
+      case 'branding':
+        imageUrl = '/heros/hero-bg-branding.jpg'
         break
       default:
         imageUrl = '/heros/hero-bg-default.jpg'
@@ -89,6 +93,15 @@
   :deep(h1),
   :deep(p) {
     color: var(--white);
+  }
+
+  :deep(a) {
+    color: var(--lightorange);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    text-decoration-line: underline;
   }
 
   .hero-content {
@@ -181,5 +194,8 @@
         rgba(0, 0, 0, 0) 143.25%
       ),
       url('/heros/hero-bg-leadership.jpg') !important;
+  }
+  .hero-branding {
+    background-image: none !important;
   }
 </style>
