@@ -1,24 +1,5 @@
 <script setup>
-  const assets = [
-    {
-      image: '',
-      title: `Primary Logo`,
-      links: [
-        {
-          title: 'JPG',
-          url: ``,
-        },
-        {
-          title: 'EPS',
-          url: ``,
-        },
-        {
-          title: 'PNG',
-          url: ``,
-        },
-      ],
-    },
-  ]
+  import { nexumLogos, firstDefenseLogos, nexumColors } from '~/data/branding'
 </script>
 
 <template>
@@ -31,15 +12,51 @@
   <section class="section-one">
     <div class="container">
       <div class="page-row">
-        <h2>Interested In Connecting With NEXUM?</h2>
+        <h2>Nexum Logo</h2>
 
         <div class="grid">
-          <div class="grid-item card">
-            <div class="image"></div>
-            <h5 class="title"></h5>
-            <div class="links">
-              <div class="link"></div>
+          <div v-for="item in nexumLogos" class="grid-item card">
+            <div class="preview">
+              <img :src="item.preview" alt="Asset preview" />
             </div>
+            <h5 class="title">{{ item.title }}</h5>
+            <div class="links">
+              <div v-for="l in item.links" class="link">{{ l.title }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-row">
+        <h2>Nexum first<span>*</span>defense<sup>®</sup> Logo</h2>
+
+        <div class="grid">
+          <div v-for="item in firstDefenseLogos" class="grid-item card">
+            <div class="preview">
+              <img :src="item.preview" alt="Asset preview" />
+            </div>
+            <h5 class="title">{{ item.title }}</h5>
+            <div class="links">
+              <div v-for="l in item.links" class="link">{{ l.title }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-row">
+        <h2>Nexum Colors</h2>
+
+        <div class="grid">
+          <div
+            v-for="color in nexumColors"
+            :key="color.hex"
+            class="grid-item color-card"
+            :style="{ backgroundColor: color.hex }"
+          >
+            <h5 class="title">{{ color.name }}</h5>
+            <p>HEX {{ color.hex }}</p>
+            <p>RGB {{ color.rgb }}</p>
+            <p>CMYK {{ color.cmyk }}</p>
+            <p v-if="color.pantone">Pantone {{ color.pantone }}</p>
           </div>
         </div>
       </div>
@@ -53,10 +70,24 @@
     flex-direction: column;
     gap: 30px;
     margin: 0 0 50px;
-    text-align: center;
+    text-align: left;
 
     p {
       color: var(--black);
+    }
+  }
+  h2 {
+    span {
+      position: relative;
+      top: 0.25em;
+      vertical-align: middle;
+      font-weight: 200;
+      font-size: 1.3em;
+    }
+    sup {
+      top: -1em;
+      font-size: 0.4em;
+      font-weight: 400;
     }
   }
   .card {
@@ -64,13 +95,16 @@
     padding: 26px 17px;
     flex-direction: column;
     align-items: center;
-    gap: 17px;
+    gap: 10px;
     border-radius: 6px;
     background: rgba(77, 77, 77, 0.06);
 
-    .image {
-      width: auto;
-      max-height: 140px;
+    .preview {
+      padding: 0 0 20px;
+      img {
+        width: auto;
+        max-height: 140px;
+      }
     }
     .title {
       color: var(--blue);
@@ -78,26 +112,79 @@
       font-size: 25px;
       font-style: normal;
       font-weight: 700;
-      line-height: 57px;
       text-transform: uppercase;
     }
     .links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      width: 100%;
+      margin: 0 auto;
+
       .link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
         color: var(--orange);
         text-align: center;
         font-size: 25px;
-        font-style: normal;
         font-weight: 400;
-        line-height: 57px;
+        line-height: 1.2;
         letter-spacing: 1.25px;
         text-transform: uppercase;
-        border-right: 1px solid var(--gray);
-        &:last-child {
-          border: 0;
+        cursor: pointer;
+
+        &::after {
+          content: '';
+          position: absolute;
+          right: -20px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 1px;
+          height: 1em;
+          background: var(--gray);
+        }
+
+        &:last-child::after {
+          display: none;
         }
       }
     }
   }
+  .color-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 185px;
+    border-radius: 6px;
+    h5,
+    p {
+      color: var(--white);
+    }
+
+    &:nth-child(6) {
+      h5,
+      p {
+        color: var(--black);
+      }
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin: 2px 0;
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -107,7 +194,7 @@
   @media (min-width: 768px) {
     .grid {
       grid-template-columns: repeat(4, 1fr);
-      gap: 64px;
+      //gap: 64px;
     }
   }
 </style>
