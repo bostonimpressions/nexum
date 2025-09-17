@@ -21,7 +21,17 @@
             </div>
             <h5 class="title">{{ item.title }}</h5>
             <div class="links">
-              <div v-for="l in item.links" class="link">{{ l.title }}</div>
+              <a
+                v-for="l in item.links"
+                :key="l.title"
+                class="link"
+                :href="l.url"
+                target="_blank"
+                rel="noopener"
+                download
+              >
+                {{ l.title }}
+              </a>
             </div>
           </div>
         </div>
@@ -36,7 +46,17 @@
             </div>
             <h5 class="title">{{ item.title }}</h5>
             <div class="links">
-              <div v-for="l in item.links" class="link">{{ l.title }}</div>
+              <a
+                v-for="l in item.links"
+                :key="l.title"
+                class="link"
+                :href="l.url"
+                target="_blank"
+                rel="noopener"
+                download
+              >
+                {{ l.title }}
+              </a>
             </div>
           </div>
         </div>
@@ -127,9 +147,8 @@
         align-items: center;
         color: var(--orange);
         text-align: center;
-        font-size: 25px;
+        font-size: 18px;
         font-weight: 400;
-        line-height: 1.2;
         letter-spacing: 1.25px;
         text-transform: uppercase;
         cursor: pointer;
