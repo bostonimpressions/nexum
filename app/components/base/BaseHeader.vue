@@ -192,7 +192,7 @@
             <div class="text dropdown" @click.stop="toggleDropdown('services')">
               <span>Services</span>
               <span class="icon-caret">
-                <img src="/icon-caret.svg" alt="" />
+                <img src="/icons/icon-caret.svg" alt="" />
               </span>
             </div>
 
@@ -214,7 +214,7 @@
             <NuxtLink to="/solutions" class="text dropdown flex items-center">
               <span>Solutions</span>
               <!-- <span class="icon-caret">
-                <img src="/icon-caret.svg" alt="" />
+                <img src="/icons/icon-caret.svg" alt="" />
               </span> -->
             </NuxtLink>
           </li>
@@ -223,7 +223,7 @@
             <NuxtLink to="/partners" class="text dropdown flex items-center">
               <span>Partners</span>
               <!-- <span class="icon-caret">
-                <img src="/icon-caret.svg" alt="" />
+                <img src="/icons/icon-caret.svg" alt="" />
               </span> -->
             </NuxtLink>
           </li>
@@ -235,7 +235,7 @@
             <div class="text dropdown" @click.stop="toggleDropdown('insights')">
               <span>Insights</span>
               <span class="icon-caret">
-                <img src="/icon-caret.svg" alt="" />
+                <img src="/icons/icon-caret.svg" alt="" />
               </span>
             </div>
 
@@ -261,7 +261,7 @@
             <div class="text dropdown" @click.stop="toggleDropdown('company')">
               <span>Company</span>
               <span class="icon-caret">
-                <img src="/icon-caret.svg" alt="" />
+                <img src="/icons/icon-caret.svg" alt="" />
               </span>
             </div>
 
@@ -383,10 +383,13 @@
   .nav-bottom {
     display: flex;
     justify-self: flex-end;
-    padding: 50px 0;
+    padding: 32px 0;
     font-size: 18px;
     ul {
-      gap: 32px;
+      gap: 0;
+      li {
+        padding: 12px 18px 20px;
+      }
     }
     .text {
       display: flex;
@@ -398,6 +401,8 @@
       transition: transform 0.15s ease;
     }
     .dropdown-open {
+      //background: var(--gray);
+      border-radius: 5px;
       .icon-caret {
         transform: rotate(180deg);
       }
@@ -419,15 +424,16 @@
 
     .dropdown-menu {
       position: absolute;
-      top: 40px;
+      top: 50px;
       left: 0;
-      background: var(--blue);
+      background: var(--gray);
       padding: 10px 0;
       display: flex;
       gap: 0;
       flex-direction: column;
       min-width: 200px;
       border-radius: 4px;
+      border-bottom: 2px solid var(--lightorange);
       z-index: 1002;
 
       li {
@@ -451,7 +457,7 @@
         margin-left: -10px;
         border-style: solid;
         border-width: 0 10px 10px 10px;
-        border-color: transparent transparent var(--blue) transparent;
+        border-color: transparent transparent var(--gray) transparent;
       }
     }
   }
@@ -513,6 +519,7 @@
       &.dropdown-open {
         background-color: #282828;
         border-radius: 5px;
+        border-bottom: 2px solid var(--lightorange);
       }
 
       .dropdown-menu {
@@ -523,6 +530,7 @@
         background: none;
         padding: 10px 0 0;
         border-radius: 0;
+        border: 0;
         overflow: hidden;
         li {
           padding: 10px;
