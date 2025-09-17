@@ -389,6 +389,9 @@
       gap: 0;
       li {
         padding: 12px 18px 20px;
+        &:last-child {
+          padding-right: 10px;
+        }
       }
     }
     .text {
