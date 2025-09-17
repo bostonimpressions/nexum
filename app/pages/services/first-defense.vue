@@ -1,10 +1,9 @@
-<!-- services -->
 <script setup lang="ts"></script>
 
 <template>
   <HeroSubpage>
     <template #logo><BaseLogoFirstDefense /></template>
-    <template #heading> Managed & Monitored services </template>
+    <template #heading> Managed & Monitored Services </template>
   </HeroSubpage>
   <Overview>
     <BaseGrid :cols="2" align-items="center">

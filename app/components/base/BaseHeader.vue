@@ -206,6 +206,31 @@
                     >First Defense</NuxtLink
                   >
                 </li>
+                <li>
+                  <NuxtLink to="/services/professional-services"
+                    >Professional Services</NuxtLink
+                  >
+                </li>
+                <li>
+                  <NuxtLink to="/services/assessment-and-advisory-services"
+                    >Assessment & Advisory</NuxtLink
+                  >
+                </li>
+                <li>
+                  <NuxtLink to="/services/technical-support-services"
+                    >Technical Support</NuxtLink
+                  >
+                </li>
+                <li>
+                  <NuxtLink to="/services/knowledge-transfer-services"
+                    >Knowledge Transfer</NuxtLink
+                  >
+                </li>
+                <li>
+                  <NuxtLink to="/services/security-workshop"
+                    >Security Workshop</NuxtLink
+                  >
+                </li>
               </ul>
             </transition>
           </li>
@@ -435,6 +460,7 @@
       gap: 0;
       flex-direction: column;
       min-width: 200px;
+      width: max-content;
       border-radius: 4px;
       border-bottom: 2px solid var(--lightorange);
       z-index: 1002;
