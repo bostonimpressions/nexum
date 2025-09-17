@@ -1,16 +1,6 @@
 <script setup lang="ts">
   import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
-
-  const logos = [
-    { name: 'Abnormal', path: '/logos/abnormal.png' },
-    { name: 'Cloudflare', path: '/logos/cloudflare.png' },
-    { name: 'Cubic Defense', path: '/logos/cubic-defense.png' },
-    { name: 'Infoblox', path: '/logos/infoblox.jpg' },
-    { name: 'Juniper', path: '/logos/juniper.png' },
-    { name: 'Palo Alto Networks', path: '/logos/palo-alto-networks.png' },
-    { name: 'Semperis', path: '/logos/semperis.png' },
-    { name: 'Zscaler', path: '/logos/zscaler.png' },
-  ]
+  import { featuredPartners } from '~/data/partners'
 
   const trackRef = ref<HTMLElement | null>(null)
   let ro: ResizeObserver | null = null
@@ -64,11 +54,15 @@
 <template>
   <div class="bar" role="presentation" aria-hidden="false">
     <div ref="trackRef" class="logos-track">
-      <div v-for="(logo, i) in logos" :key="logo.name" class="logo">
-        <img :src="logo.path" :alt="logo.name" />
+      <div v-for="(logo, i) in featuredPartners" :key="i" class="logo">
+        <img :src="`/logos/logo-${logo.src}`" alt="Partner logo" />
       </div>
-      <div v-for="(logo, i) in logos" :key="logo.name + '-clone'" class="logo">
-        <img :src="logo.path" :alt="logo.name" />
+      <div
+        v-for="(logo, i) in featuredPartners"
+        :key="i + '-clone'"
+        class="logo"
+      >
+        <img :src="`/logos/logo-${logo.src}`" alt="Partner logo" />
       </div>
     </div>
   </div>

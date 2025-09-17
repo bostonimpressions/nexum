@@ -14,7 +14,7 @@
       <div class="page-row">
         <h2>Nexum Logo</h2>
 
-        <div class="grid">
+        <BaseGrid :cols="4">
           <div v-for="item in nexumLogos" class="grid-item card">
             <div class="preview">
               <img :src="item.preview" alt="Asset preview" />
@@ -34,12 +34,12 @@
               </a>
             </div>
           </div>
-        </div>
+        </BaseGrid>
       </div>
       <div class="page-row">
         <h2>Nexum first<span>*</span>defense<sup>®</sup> Logo</h2>
 
-        <div class="grid">
+        <BaseGrid :cols="4">
           <div v-for="item in firstDefenseLogos" class="grid-item card">
             <div class="preview">
               <img :src="item.preview" alt="Asset preview" />
@@ -59,13 +59,13 @@
               </a>
             </div>
           </div>
-        </div>
+        </BaseGrid>
       </div>
 
       <div class="page-row">
         <h2>Nexum Colors</h2>
 
-        <div class="grid">
+        <BaseGrid :cols="4">
           <div
             v-for="color in nexumColors"
             :key="color.hex"
@@ -78,7 +78,7 @@
             <p>CMYK {{ color.cmyk }}</p>
             <p v-if="color.pantone">Pantone {{ color.pantone }}</p>
           </div>
-        </div>
+        </BaseGrid>
       </div>
     </div>
   </section>
@@ -201,19 +201,6 @@
       font-size: 16px;
       font-weight: 400;
       text-transform: uppercase;
-    }
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  @media (min-width: 768px) {
-    .grid {
-      grid-template-columns: repeat(4, 1fr);
-      //gap: 64px;
     }
   }
 </style>

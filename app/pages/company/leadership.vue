@@ -1,13 +1,5 @@
 <script setup>
-  const employees = [
-    {
-      name: 'John Doe',
-      title: 'Director of Security',
-      img: '/leadership/headshot-male.png',
-      linkedin: 'https://www.linkedin.com/in/person',
-    },
-    // add more employees here...
-  ]
+  import { leadership } from '~/data/leadership'
 </script>
 
 <template>
@@ -23,8 +15,8 @@
 
   <section class="section-one">
     <div class="container">
-      <div class="grid">
-        <div class="card" v-for="(employee, i) in employees" :key="i">
+      <BaseGrid :cols="3">
+        <div class="card" v-for="(employee, i) in leadership" :key="i">
           <img :src="employee.img" :alt="employee.name" />
           <h5>{{ employee.name }}</h5>
           <div class="title">{{ employee.title }}</div>
@@ -51,18 +43,12 @@
             Connect with {{ employee.name }} on LinkedIn
           </a>
         </div>
-      </div>
+      </BaseGrid>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
   .card {
     display: flex;
     flex-direction: column;
@@ -95,12 +81,6 @@
     svg {
       width: 23px;
       height: 23px;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .grid {
-      grid-template-columns: repeat(3, 1fr);
     }
   }
 </style>

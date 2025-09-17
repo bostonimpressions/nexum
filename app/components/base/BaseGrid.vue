@@ -9,7 +9,7 @@
 
   const props = withDefaults(defineProps<Props>(), {
     cols: 2,
-    gap: '2rem',
+    gap: '24px',
     align: 'stretch',
     alignItems: 'normal',
     noCollapse: false,
@@ -42,7 +42,8 @@
     > * {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      text-align: left;
+      gap: 16px;
     }
 
     :deep(.grid-item) {
@@ -73,8 +74,15 @@
 
     &[data-cols='3'] {
       @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (min-width: 1024px) {
         grid-template-columns: repeat(3, 1fr);
       }
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     @media (min-width: 1024px) {

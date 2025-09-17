@@ -34,7 +34,7 @@
             >
           </h2>
 
-          <div class="grid">
+          <BaseGrid :cols="2" gap="40px">
             <div class="grid-item">
               <div class="text-block">
                 <h4>Jody Hodge: A Veteran Leader at Nexum</h4>
@@ -96,7 +96,7 @@
                 </p>
               </div>
             </div>
-          </div>
+          </BaseGrid>
         </div>
       </div>
     </div>
@@ -165,6 +165,7 @@
     text-align: left;
 
     h2 {
+      margin-bottom: 40px;
       color: var(--white);
       font-size: clamp(38px, 5vw, 46px);
       line-height: clamp(38px, 5vw, 46px);
@@ -189,13 +190,6 @@
     }
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-top: 40px;
-  }
-
   .grid-item {
     display: flex;
     flex-direction: column;
@@ -209,9 +203,6 @@
   }
 
   @media (min-width: 768px) {
-    .grid {
-      grid-template-columns: 1fr 1fr;
-    }
     .interview {
       padding: 60px;
       border-radius: 20px;

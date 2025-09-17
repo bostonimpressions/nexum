@@ -1,4 +1,18 @@
 // partners.ts
+export const featuredPartners = [
+  { src: 'abnormal.png', url: null },
+  { src: 'infoblox.png', url: null },
+  { src: 'cyera.png', url: null },
+  { src: 'zscaler.png', url: null },
+  { src: 'ibm.png', url: null },
+  { src: 'palo-alto-networks.png', url: null },
+  { src: 'fortinet.png', url: null },
+  { src: 'juniper.png', url: null },
+  { src: 'cubic-defense.png', url: null },
+  { src: 'f5.png', url: null },
+  { src: 'semperis.png', url: null },
+  { src: 'cloudflare.png', url: null },
+]
 export const partners = [
   { name: "1Touch", url: "" },
   { name: "Abnormal", url: "" },

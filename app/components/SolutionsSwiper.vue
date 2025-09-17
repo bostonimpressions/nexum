@@ -31,7 +31,7 @@
     >
       <SwiperSlide v-for="(slide, i) in slides" :key="i" class="slide-item">
         <div class="icon">
-          <img :src="slide.icon" :alt="slide.name" />
+          <img :src="`/icons/${slide.icon}`" :alt="slide.name" />
         </div>
         <div class="label">
           <h3>{{ slide.name }}</h3>

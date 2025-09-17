@@ -41,7 +41,7 @@
 
   <section class="section-one">
     <div class="container">
-      <div class="blog-grid">
+      <BaseGrid :cols="3">
         <div v-for="post in visiblePosts" :key="post.id" class="blog-card">
           <a :href="post.link">
             <img :src="post.image" :alt="post.title" class="blog-image" />
@@ -50,7 +50,7 @@
           <p>{{ post.description }}</p>
           <a :href="post.link" class="read-more">Read More →</a>
         </div>
-      </div>
+      </BaseGrid>
 
       <div v-if="visiblePosts.length < allPosts.length" class="load-more">
         <BaseButton @click="loadMore">Load More</BaseButton>
@@ -60,12 +60,6 @@
 </template>
 
 <style scoped lang="scss">
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-  }
-
   .blog-card {
     padding: 16px;
     display: flex;

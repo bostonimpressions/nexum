@@ -2,7 +2,7 @@
   <section class="section-wrapper">
     <div class="section-connect">
       <div class="container">
-        <div class="two-col-grid">
+        <BaseGrid>
           <div class="grid-item">
             <h2 class="sr-only">First Defense</h2>
             <BaseLogoFirstDefense />
@@ -24,7 +24,7 @@
           <div class="grid-item">
             <img src="/solutions-transport.png" alt="Solutions transport" />
           </div>
-        </div>
+        </BaseGrid>
       </div>
     </div>
     <svg
@@ -60,24 +60,15 @@
     }
   }
 
-  .two-col-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 75px;
-    //align-items: center;
-
-    > .grid-item {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-
-      + .grid-item {
-        align-items: center;
-      }
-    }
-  }
-
   .grid-item {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    + .grid-item {
+      align-items: center;
+    }
+
     img {
       width: 100%;
     }
@@ -101,16 +92,11 @@
       fill: var(--lightblue);
     }
   }
-  @media (min-width: 768px) {
-  }
 
   @media (min-width: 1024px) {
     .button-row {
       flex-direction: row;
       gap: 30px;
-    }
-    .two-col-grid {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>

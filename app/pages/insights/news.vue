@@ -63,7 +63,8 @@
 
     <div class="container news-posts">
       <h2>Latest News</h2>
-      <div class="news-grid">
+
+      <BaseGrid :cols="4">
         <div v-for="post in visiblePosts" :key="post.id" class="news-card">
           <a :href="post.link">
             <img :src="post.image" :alt="post.title" class="news-image" />
@@ -73,7 +74,8 @@
 
           <a :href="post.link" class="read-more">Read More →</a>
         </div>
-      </div>
+      </BaseGrid>
+      <div class="news-grid"></div>
 
       <div v-if="visiblePosts.length < allPosts.length" class="load-more">
         <BaseButton @click="loadMore">Load More</BaseButton>
@@ -145,12 +147,6 @@
     h2 {
       color: var(--gray);
     }
-  }
-  .news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-    margin: 0 0 26px;
   }
 
   .news-card {
