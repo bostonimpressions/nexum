@@ -154,9 +154,9 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    background: #fff;
+    background: var(--white);
     border-radius: 10px;
-    border: 1px solid #e4e8ee;
+    border: 1px solid var(--lightgray);
     transition: transform 0.2s;
 
     &:hover {

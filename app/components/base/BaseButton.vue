@@ -6,13 +6,14 @@
     link?: boolean
     to?: string
     solid?: boolean
-    variant?: 'light' | 'orange' | 'white' | 'blue'
+    variant?: 'light' | 'orange' | 'white' | 'blue' | 'link' // added 'link'
     arrow?: boolean
   }
 
   const props = defineProps<Props>()
 
   const buttonClass = computed(() => {
+    if (props.variant === 'link') return 'link-variant' // special class for link-style
     const color = props.variant || 'light'
     return props.solid ? `solid-${color}` : `outlined-${color}`
   })
@@ -27,7 +28,10 @@
   >
     <div class="link-text">
       <slot />
-      <span v-if="props.arrow" class="arrow">→</span>
+      <span v-if="props.arrow" class="arrow">
+        <!-- optional: use your SVG arrow here -->
+        →
+      </span>
     </div>
   </component>
 </template>
@@ -91,11 +95,21 @@
 
     &:hover {
       opacity: 0.9;
-
       .arrow {
         transform: translateX(5px);
       }
     }
+  }
+
+  /* Link-variant styling */
+  .link-variant {
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #0072ce;
+    font-size: 16px;
+    font-weight: 400;
+    gap: 5px;
   }
 
   .link-text {

@@ -76,8 +76,8 @@
     flex-direction: column;
     gap: 16px;
     padding: 16px;
-    background: #fff;
-    border: 1px solid #e4e8ee;
+    background: var(--white);
+    border: 1px solid var(--lightgray);
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.2s;

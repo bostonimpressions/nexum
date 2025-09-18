@@ -55,7 +55,7 @@
     gap: 20px;
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid #e4e8ee;
+    border: 1px solid var(--lightgray);
     background: var(--white);
   }
 

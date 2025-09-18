@@ -81,7 +81,7 @@
   }
 
   .logo-card {
-    background: #fff;
+    background: var(--white);
     border: 1px solid #ccc;
     border-radius: 25px;
     display: flex;

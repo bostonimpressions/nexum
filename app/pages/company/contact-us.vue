@@ -176,7 +176,7 @@
 
   .contact-form {
     padding: 25px;
-    background-color: #e4e8ee;
+    background-color: var(--lightgray);
     border-radius: 12px;
 
     h4 {
@@ -233,7 +233,7 @@
     textarea {
       padding: 10px 12px;
       background-color: var(--white);
-      border: 1px solid #e4e8ee;
+      border: 1px solid var(--lightgray);
       border-radius: 6px;
       font-size: 15px;
     }

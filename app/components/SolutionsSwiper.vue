@@ -133,7 +133,7 @@
       padding: 13px;
       border-radius: 25.5px;
       border: 1px solid var(--blue);
-      background: #fff;
+      background: var(--white);
       user-select: none;
     }
 

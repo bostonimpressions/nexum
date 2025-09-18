@@ -4,7 +4,9 @@
 @layer base {
   :root {
     --white: #ffffff;
+    --lightgray: #e4e8ee;
     --blue: #003087;
+    --mediumblue: #0072ce;
     --orange: #fc6b03;
     --lightorange: #ffa827;
     --lightblue: #ddf2ff;
@@ -120,9 +122,22 @@ p {
   gap: 42px;
   padding: 30px !important;
   border-radius: 12px;
-  background: #fff;
+  background: var(--white);
   box-shadow: 0 4px 21px 0 rgba(0, 0, 0, 0.09);
 }
+
+.chip {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background: rgba(0, 114, 206, 0.1);
+  color: #0072ce;
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .section-one {
   margin: 50px auto;
 }

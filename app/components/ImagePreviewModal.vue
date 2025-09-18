@@ -35,7 +35,7 @@
 
   .modal-content {
     position: relative;
-    background: #fff;
+    background: var(--white);
     padding: 20px;
     border-radius: 6px;
     max-width: 90%;
@@ -53,7 +53,7 @@
     top: -60px;
     right: 0;
     background: #000;
-    color: #fff;
+    color: var(--white);
     border: none;
     border-radius: 5px;
     font-size: 32px;

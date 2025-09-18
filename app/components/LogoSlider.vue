@@ -77,7 +77,7 @@
     display: flex;
     align-items: center;
     border-radius: 16px;
-    background: #fff;
+    background: var(--white);
     box-shadow: 0 2px 54px rgba(0, 114, 206, 0.08);
   }
 
