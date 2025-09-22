@@ -3,15 +3,19 @@
 <template>
   <HeroSubpage>
     <template #heading> Knowledge Transfer Services </template>
+    <template #subheading>
+      Make the Most of Your Existing Security & Networking Investments
+    </template>
   </HeroSubpage>
   <Overview>
     <h2>Unlock the Full Potential of Your Technology Stack</h2>
     <p>
       You’ve already made significant investments in best-in-class networking
       and security solutions—now let Nexum help you get the most out of them.
-      Our Knowledge Transfer offering bridges the gap between deployment and
-      daily operational excellence by equipping your teams with practical
-      knowledge and confidence.
+      Our <strong>Knowledge Transfer</strong> offering bridges the gap between
+      deployment and daily operational excellence by equipping your teams with
+      the <em>practical knowledge and confidence</em> they need to optimize
+      performance, streamline operations, and maximize ROI.
     </p>
   </Overview>
   <section class="section-two container container-collapse">
