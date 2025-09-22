@@ -432,6 +432,59 @@
       </svg>
     </div>
   </section>
+
+  <section class="section-two container container-collapse example-engagements">
+    <BaseBanner>
+      <h2>Example Engagements</h2>
+      <div class="border-box">
+        <BaseGrid>
+          <div class="example-item">
+            <h4>Firewall Policy Review & Refinement</h4>
+            <p>
+              No lab simulations or broad hypotheticals. We teach within your
+              infrastructure and on your policies, so every minute counts.
+            </p>
+          </div>
+          <div class="example-item">
+            <h4>SASE or SD-WAN Strategy Enablement</h4>
+            <p>
+              Deep dive into traffic steering, redundancy, cloud integration,
+              and visibility.
+            </p>
+          </div>
+          <div class="example-item">
+            <h4>SIEM & Visibility Enhancement</h4>
+            <p>
+              Hands-on guidance in tuning logs, rules, and dashboards to reduce
+              alert fatigue and speed up investigation.
+            </p>
+          </div>
+          <div class="example-item">
+            <h4>User & Identity Management</h4>
+            <p>
+              Guidance on tying in MFA, LDAP/AD, and access control across your
+              ecosystem.
+            </p>
+          </div>
+        </BaseGrid>
+      </div>
+
+      <div class="list">
+        <h3>Your Team Gains:</h3>
+
+        <BaseBulletList
+          :items="[
+            'Enhanced performance from the tools already purchased',
+            'Less time spent troubleshooting or escalating issues',
+            'Greater independence from vendor support',
+            'Practical know-how to evolve and scale securely',
+          ]"
+          iconColor="var(--lightorange)"
+          textColor="var(--white)"
+        />
+      </div>
+    </BaseBanner>
+  </section>
 </template>
 
 <style lang="scss" scoped>
@@ -506,6 +559,24 @@
         color: var(--blue);
       }
     }
+  }
+
+  .example-engagements {
+    .list {
+      margin: 0;
+      padding: 30px 0 0 40px;
+      align-self: normal;
+    }
+    h3 {
+      color: var(--white);
+      text-align: left;
+    }
+  }
+
+  .border-box {
+    padding: 50px 40px;
+    border: 1px solid var(--lightorange);
+    border-radius: 15px;
   }
 
   @media (min-width: 768px) {

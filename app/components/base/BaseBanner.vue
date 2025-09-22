@@ -10,13 +10,12 @@
   .base-banner {
     display: flex;
     width: 100%;
-    padding: 120px;
+    padding: 60px 30px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 32px;
-    border-radius: 18px;
     background-color: var(--blue);
     background-color: var(--blue);
     background-image: url('/bg-darkblue.jpg');
@@ -28,15 +27,20 @@
     :deep(h2),
     :deep(p) {
       color: var(--white);
-      //max-width: 575px;
     }
 
     :deep(h2) {
-      font-size: 46px;
+      font-size: clamp(28px, 5vw, 46px);
       font-style: normal;
       font-weight: 700;
-      line-height: 50px;
       text-transform: capitalize;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .base-banner {
+      padding: 120px;
+      border-radius: 25px;
     }
   }
 </style>

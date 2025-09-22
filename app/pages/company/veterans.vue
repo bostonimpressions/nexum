@@ -117,7 +117,8 @@
           pay off in the end.”
         </p>
       </div>
-
+    </div>
+    <div class="container container-collapse">
       <BaseBanner>
         <h2>Nexum – A Fit for Veterans</h2>
         <p>

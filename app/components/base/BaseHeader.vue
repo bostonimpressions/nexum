@@ -36,6 +36,7 @@
   function closeAll() {
     isOpen.value = false
     openDropdown.value = null
+    document.body.style.overflow = ''
   }
 
   // Close dropdown/drawer when clicking outside
@@ -184,7 +185,7 @@
         </ul>
       </nav>
       <nav class="nav-bottom">
-        <ul>
+        <ul @click="closeAll">
           <li
             class="dropdown-parent"
             :class="{ 'dropdown-open': openDropdown === 'services' }"

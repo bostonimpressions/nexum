@@ -32,9 +32,11 @@
           with one simple statement: 
         </p>
       </div>
-      <div class="page-row">
-        <BlueBox />
-      </div>
+    </div>
+    <div class="container container-collapse">
+      <BlueBox />
+    </div>
+    <div class="container">
       <div class="page-row">
         <h2>Four Pillars One Mission</h2>
         <p>
@@ -43,25 +45,25 @@
         </p>
         <MissionSwiper />
       </div>
-
-      <div class="page-row">
-        <BaseBanner>
-          <h2>Cybersecurity That Supports Your Needs</h2>
-          <p>
-            We are a SOC 2 Type 2-compliant Managed Security Service Provider
-            (MSSP) with a range of services to help you defend your network
-            efficiently and effectively. Most importantly, Nexum’s
-            manufacturer-authorized technical support team is available 24/7 via
-            telephone, email, and our web-based portal.
-            <br />
-            <br />
-            In other words, at Nexum, We Mean Security®.
-          </p>
-          <BaseButton>Managed Security Services</BaseButton>
-        </BaseBanner>
-      </div>
-
-      <div class="page-row image-text-row">
+    </div>
+    <div class="container container-collapse">
+      <BaseBanner>
+        <h2>Cybersecurity That Supports Your Needs</h2>
+        <p>
+          We are a SOC 2 Type 2-compliant Managed Security Service Provider
+          (MSSP) with a range of services to help you defend your network
+          efficiently and effectively. Most importantly, Nexum’s
+          manufacturer-authorized technical support team is available 24/7 via
+          telephone, email, and our web-based portal.
+          <br />
+          <br />
+          In other words, at Nexum, We Mean Security®.
+        </p>
+        <BaseButton>Managed Security Services</BaseButton>
+      </BaseBanner>
+    </div>
+    <div class="container">
+      <div class="image-text-row">
         <img
           src="/logo-asdad-color.png"
           alt="Service Disabled Veteran Owned Small Business"
@@ -92,6 +94,7 @@
     flex-direction: column;
     gap: 30px;
     align-items: center;
+    text-align: center;
     img {
       width: 200px;
     }
