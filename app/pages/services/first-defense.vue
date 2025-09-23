@@ -6,9 +6,8 @@
     <template #heading> Managed & Monitored Services </template>
   </HeroSubpage>
   <Overview>
-    <BaseGrid :cols="2" align-items="center">
+    <BaseGrid :cols="2">
       <div class="grid-item">
-        <h2>Overview</h2>
         <p>
           Nexum first*defense is a family of managed and monitored services
           designed to be your fist line of defense for security and networking
@@ -16,6 +15,8 @@
           US-based Security and Network Operation Command Centers (SNOCCs) are
           available around the clock to help augment your own technical staff.
         </p>
+      </div>
+      <div class="grid-item">
         <p>
           <strong>
             These attributes provide the service level you want and the
@@ -30,11 +31,24 @@
           <li>Experience in delivering first*defense solution since 2006</li>
         </ul>
       </div>
-      <div class="grid-item">
-        <img src="/solutions-transport.png" alt="Solutions transport" />
-      </div>
     </BaseGrid>
   </Overview>
+
+  <SectionDarkCurved>
+    <BaseGrid align-items="center" class="two-thirds-grid">
+      <div class="grid-item">
+        <p class="border-bottom">
+          Our first*defense solution focuses on providing exceptional customer
+          services and delivery of the security outcomes needed to maintain
+          compliance and limit exposure to cybersecurity threats.
+        </p>
+      </div>
+      <div class="grid-item">
+        <img src="/solutions-transport-light.png" alt="Solutions transport" />
+      </div>
+    </BaseGrid>
+  </SectionDarkCurved>
+
   <section class="section-two container">
     <div class="floating-box">
       <BaseLogoFirstDefense />
@@ -116,10 +130,16 @@
     }
   }
 
+  .border-bottom {
+    padding: 0 0 30px;
+  }
+
   .grid-item {
     > img {
-      max-width: 480px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 700px;
+      margin-top: -40px;
+      align-self: flex-end;
     }
     h3 {
       color: var(--orange);
@@ -132,6 +152,14 @@
   }
 
   .section-two {
-    margin: 0 auto 50px;
+    margin: 80px auto;
+  }
+
+  @media (min-width: 768px) {
+    .border-bottom {
+      font-size: 21px;
+      padding: 0 0 30px;
+      border-bottom: 4px solid var(--lightorange);
+    }
   }
 </style>

@@ -126,7 +126,7 @@ p {
 .floating-box {
   display: flex;
   flex-direction: column;
-  gap: 42px;
+  gap: 15px;
   padding: 30px !important;
   border-radius: 12px;
   background: var(--white);

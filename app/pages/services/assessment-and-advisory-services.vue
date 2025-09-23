@@ -11,7 +11,28 @@
 <template>
   <HeroSubpage>
     <template #heading> Assessment & Advisory Services </template>
+    <p>
+      At Nexum, we believe a strong cybersecurity program starts with a clear
+      understanding of your current environment. Our Assessment & Advisory
+      services help you identify, evaluate, and prioritize risks across your
+      applications, networks, systems, and business processes.
+    </p>
   </HeroSubpage>
+
+  <Overview>
+    <!-- <p>
+      Backed by seasoned engineers and industry best practices, we conduct
+      multi-point, holistic reviews that go beyond surface-level scans—providing
+      a realistic picture of your security posture, stability, availability, and
+      overall resilience.
+    </p> -->
+    <p>
+      From uncovering vulnerabilities to validating configurations, Nexum
+      delivers actionable insights and tailored recommendations that enable you
+      to reduce risk, strengthen defenses, and align your security investments
+      with your business objectives.
+    </p>
+  </Overview>
 
   <section class="section-two container">
     <div class="assessment-list">
@@ -70,7 +91,7 @@
 
 <style lang="scss" scoped>
   .section-two {
-    margin: 0 auto 50px;
+    margin: 80px auto;
 
     .assessment-list {
       margin: 50px auto;

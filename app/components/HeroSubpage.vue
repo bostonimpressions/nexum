@@ -17,6 +17,8 @@
             <slot name="subheading" />
           </span>
         </h1>
+
+        <slot />
       </div>
     </div>
   </div>
@@ -37,7 +39,8 @@
     color: var(--white);
   }
   h1,
-  p {
+  p,
+  :deep(p) {
     color: var(--white);
   }
   .subheading {
@@ -53,7 +56,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 27px;
+    gap: 15px;
   }
 
   .hero-container {

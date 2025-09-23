@@ -100,7 +100,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 27px;
+    gap: 15px;
     :deep(a) {
       color: var(--lightorange);
       font-size: 18px;

@@ -9,14 +9,15 @@
 <style scoped lang="scss">
   .overview {
     &.container {
-      top: -50px;
+      position: relative;
+      margin-top: -50px;
     }
   }
 
   @media (min-width: 768px) {
     .overview {
       &.container {
-        top: -80px;
+        margin-top: -60px;
       }
     }
   }

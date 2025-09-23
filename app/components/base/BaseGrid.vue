@@ -83,6 +83,10 @@
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
+
+      :deep(.two-thirds-grid.base-grid[data-cols='2']) {
+        grid-template-columns: 1fr 2fr !important;
+      }
     }
 
     @media (min-width: 1024px) {

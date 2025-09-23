@@ -18,7 +18,7 @@
       performance, streamline operations, and maximize ROI.
     </p>
   </Overview>
-  <section class="section-two container container-collapse">
+  <section class="section-two container container-collapse info">
     <Informative
       heading="What is Knowledge Transfer?"
       body="Nexum’s Knowledge Transfer program is engineer-led, hands-on, and customized to your environment. It's not formal manufacturer training—it’s better."
@@ -490,6 +490,9 @@
 <style lang="scss" scoped>
   .section-two {
     margin: 0 auto 80px;
+    &.info {
+      margin-top: 120px;
+    }
   }
 
   .services {
