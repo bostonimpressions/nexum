@@ -10,7 +10,7 @@
   .base-banner {
     display: flex;
     width: 100%;
-    padding: 60px 30px;
+    padding: 60px 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -34,6 +34,12 @@
       font-style: normal;
       font-weight: 700;
       text-transform: capitalize;
+    }
+  }
+
+  @media (min-width: 500px) {
+    .base-banner {
+      padding: 40px;
     }
   }
 

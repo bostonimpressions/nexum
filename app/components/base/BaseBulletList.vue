@@ -48,6 +48,7 @@
       gap: 15px;
       margin: 0 0 20px;
       font-size: 18px;
+      text-align: left;
 
       svg {
         width: 25px;

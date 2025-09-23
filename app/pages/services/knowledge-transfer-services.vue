@@ -492,12 +492,9 @@
     margin: 0 auto 80px;
   }
 
-  h2 {
-    margin: 0 auto 90px;
-  }
-
   .services {
     > h2 {
+      margin: 0 auto 90px;
       text-align: center;
     }
   }
@@ -564,7 +561,7 @@
   .example-engagements {
     .list {
       margin: 0;
-      padding: 30px 0 0 40px;
+      padding: 30px 0 0 10px;
       align-self: normal;
     }
     h3 {
@@ -574,12 +571,17 @@
   }
 
   .border-box {
-    padding: 50px 40px;
+    padding: 40px 25px;
+    margin: 0 -10px;
     border: 1px solid var(--lightorange);
     border-radius: 15px;
   }
 
   @media (min-width: 768px) {
+    .border-box {
+      padding: 50px 40px;
+      margin: auto;
+    }
     .why {
       > h2 {
         text-align: left;
@@ -603,6 +605,11 @@
       }
       .body-text {
         order: initial;
+      }
+    }
+    .example-engagements {
+      .list {
+        padding: 30px 0 0 40px;
       }
     }
   }
