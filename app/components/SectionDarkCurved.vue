@@ -96,7 +96,7 @@
   @media (min-width: 1240px) {
     .section-content {
       .container {
-        padding: 0;
+        padding: 0 0 40px;
       }
     }
   }
