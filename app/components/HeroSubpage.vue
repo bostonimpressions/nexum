@@ -43,13 +43,6 @@
   :deep(p) {
     color: var(--white);
   }
-  .subheading {
-    display: block;
-    font-size: 0.5em;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-top: 0.5em;
-  }
 
   .hero-content {
     max-width: 900px;

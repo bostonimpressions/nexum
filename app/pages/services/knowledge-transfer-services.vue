@@ -33,15 +33,15 @@
   <section class="section-two container services">
     <h2>What We Offer</h2>
 
-    <ServiceCard
+    <ServiceItem
       heading="In-Environment Enablement Sessions"
       body="Interactive sessions centered around your exact setup and goals—whether it's refining firewall rules, reducing alert noise, or optimizing SD-WAN configurations."
     />
-    <ServiceCard
+    <ServiceItem
       heading="System Health Checks + Optimization Walkthroughs"
       body="We help you assess and fine-tune existing configurations to close gaps, enhance performance, and align with security frameworks."
     />
-    <ServiceCard
+    <ServiceItem
       heading="Use-Case Driven Labs"
       body="We run through real scenarios your team faces, showing how to:"
       :items="[
