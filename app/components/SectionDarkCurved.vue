@@ -93,7 +93,7 @@
     }
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1240px) {
     .section-content {
       .container {
         padding: 0;
