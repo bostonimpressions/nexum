@@ -1,7 +1,12 @@
 <template>
-  <section class="section-curved">
+  <header class="header-service-overview">
+    <div class="header-content">
+      <div class="container">
+        <slot />
+      </div>
+    </div>
     <svg
-      class="curve-top"
+      class="curve-bottom"
       id="Layer_2"
       data-name="Layer 2"
       xmlns="http://www.w3.org/2000/svg"
@@ -14,22 +19,16 @@
         />
       </g>
     </svg>
-
-    <div class="section-content">
-      <div class="container">
-        <slot />
-      </div>
-    </div>
-  </section>
+  </header>
 </template>
 
 <style scoped lang="scss">
-  .section-curved {
-    margin: 80px auto 0;
+  .header-service-overview {
+    margin: 0 auto;
   }
-  .section-content {
+  .header-content {
     position: relative;
-    background: var(--blue);
+    background: var(--lightorange);
     padding: 0;
 
     :deep(h2),
@@ -40,9 +39,8 @@
     .container {
       position: relative;
       z-index: 1;
-      gap: 52px;
       margin: 0 auto;
-      padding: 40px;
+      padding: 20px 20px 10px;
     }
   }
 
@@ -65,39 +63,30 @@
     text-align: center;
   }
 
-  .curve-top {
+  .curve-bottom {
     position: relative;
-    top: 1px;
+    bottom: 1px;
     left: 0;
     width: 100%;
     height: auto;
     display: block;
     z-index: 0;
-    filter: drop-shadow(0 -4px 0 var(--orange))
-      drop-shadow(0 -2px 0 var(--orange));
+    transform: rotate(180deg);
 
     path {
-      fill: var(--blue);
+      fill: var(--lightorange);
     }
   }
 
   @media (min-width: 1024px) {
-    .section-content {
+    .header-content {
       .container {
-        padding: 0 20px 0;
+        padding: 40px 40px 0;
       }
     }
     .button-row {
       flex-direction: row;
       gap: 30px;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .section-content {
-      .container {
-        padding: 0;
-      }
     }
   }
 </style>

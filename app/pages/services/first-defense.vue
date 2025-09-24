@@ -1,4 +1,60 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  interface iconWithText {
+    imgSrc: string
+    imgAlt: string
+    title: string
+    text: string
+  }
+
+  const serviceFeatures: iconWithText[] = [
+    {
+      imgSrc: '/icons/icon-fd-speed.png',
+      imgAlt: 'Speed',
+      title: '1. Speed',
+      text: `Rapid collection and processing get alerts to our analysts
+      usually within 60 seconds. Notification of important events to
+      customers occurs within minutes and emergency changes are
+      processed promptly which means faster time to resolution and
+      less risk of a breach.`,
+    },
+    {
+      imgSrc: '/icons/icon-fd-data.png',
+      imgAlt: 'Data',
+      title: '2. Threat Intelligence',
+      text: `Data from over 100 sources of threat intelligence are ingested
+      in FD solution to identify malicious activity and proactively
+      prevent harm to your organization. Access to consolidated threat
+      intelligence feeds is available to all FD customer.`,
+    },
+    {
+      imgSrc: '/icons/icon-fd-capabilities.png',
+      imgAlt: 'Data',
+      title: '3. Security Monitoring and Management',
+      text: `Advanced detection and automation capabilities are provided for your systems
+      (whether you have your own SIEM or leverage Nexum’s). The solution is
+      delivered with accountability in mind and customers can elect to retain some
+      or all of the control and activity of the managed platform.`,
+    },
+    {
+      imgSrc: '/icons/icon-fd-procedure.png',
+      imgAlt: 'Data',
+      title: '4. Flexibility and Transparency',
+      text: `Procedures specific to your organization are customized and transparent access
+      is provided to all workflow notes, even for false positives and non-critical events.
+      Alerts are clear, concise, with a simple outline of cause and a straightforward
+      direction to resolution.`,
+    },
+    {
+      imgSrc: '/icons/icon-fd-engineers.png',
+      imgAlt: 'Data',
+      title: '5. People',
+      text: `Analysts at our SNOCC’s are familiar with customer accounts and are
+      knowledgeable, extensively trained (including certified on vendor products)
+      and able to address customer questions. Experienced Network Security
+      Engineers are available to provide additional support and expertise.`,
+    },
+  ]
+</script>
 
 <template>
   <HeroSubpage>
@@ -49,63 +105,113 @@
     </BaseGrid>
   </SectionDarkCurved>
 
-  <section class="section-two container">
-    <div class="floating-box">
-      <BaseLogoFirstDefense />
-      <h2>TRIPLE STRENGTHS</h2>
+  <div class="light-background">
+    <section class="section-main">
+      <HeaderServiceOverview>
+        <div class="overview-title">
+          <img src="/logos/first-defense-white.png" alt="first*defense" />
+          <h2>Overview</h2>
+        </div>
+      </HeaderServiceOverview>
 
-      <BaseGrid :cols="3">
-        <div class="grid-item">
-          <div class="grid-icon">
-            <img src="/icons/icon-globe.png" alt="Icon" />
-          </div>
-          <h3>TRIPLE STRENGTHS</h3>
-        </div>
-        <div class="grid-item">
-          <div class="grid-icon">
-            <img src="/icons/icon-agents.png" alt="Icon" />
-          </div>
-          <h3>TRIPLE STRENGTHS</h3>
-        </div>
-        <div class="grid-item">
-          <div class="grid-icon">
-            <img src="/icons/icon-gear.png" alt="Icon" />
-          </div>
-          <h3>TRIPLE STRENGTHS</h3>
-        </div>
-      </BaseGrid>
-      <BaseGrid :cols="2" align-items="center">
-        <div class="grid-item">
+      <div class="container">
+        <div class="section-lead">
           <p>
-            Nexum first*defense is a family of managed and monitored services
-            designed to be your fist line of defense for security and networking
-            challenges. Our team of certified experts located at our redundant
-            US-based Security and Network Operation Command Centers (SNOCCs) are
-            available around the clock to help augment your own technical staff.
+            first*defense is centered on providing a robust managed security
+            solution while exceeding customer service expectations. An
+            organization's security posture is dynamic and often has unique
+            requirements. Nexum can assist regardless of customer size or
+            vertical leveraging our over two decades of cybersecurity
+            experience.
           </p>
-          <p>
-            <strong>
-              These attributes provide the service level you want and the
-              compliance you can rely on from a leading managed service:
-            </strong>
-          </p>
+        </div>
 
-          <ul>
-            <li>100% US-based support (SNOCC and engineers)</li>
-            <li>SOC -II Type 2 and PCI compliant</li>
-            <li>Dedicated Network Security Engineer</li>
-            <li>Experience in delivering first*defense solution since 2006</li>
-          </ul>
+        <div class="icon-text-grid">
+          <div
+            v-for="(row, index) in serviceFeatures"
+            :key="index"
+            class="row"
+            :class="{ reverse: index % 2 === 1 }"
+          >
+            <div class="grid-item">
+              <img :src="row.imgSrc" :alt="row.imgAlt" />
+            </div>
+            <div class="grid-item">
+              <h4>{{ row.title }}</h4>
+              <p>{{ row.text }}</p>
+            </div>
+          </div>
         </div>
-        <div class="grid-item">
-          <img src="/solutions-transport.png" alt="Solutions transport" />
-        </div>
-      </BaseGrid>
-    </div>
-  </section>
+      </div>
+    </section>
+
+    <section class="section-two container">
+      <div class="floating-box">
+        <BaseLogoFirstDefense />
+        <h2>TRIPLE STRENGTHS</h2>
+
+        <BaseGrid :cols="3">
+          <div class="grid-item">
+            <div class="grid-icon">
+              <img src="/icons/icon-globe.png" alt="Icon" />
+            </div>
+            <h3>TRIPLE STRENGTHS</h3>
+          </div>
+          <div class="grid-item">
+            <div class="grid-icon">
+              <img src="/icons/icon-agents.png" alt="Icon" />
+            </div>
+            <h3>TRIPLE STRENGTHS</h3>
+          </div>
+          <div class="grid-item">
+            <div class="grid-icon">
+              <img src="/icons/icon-gear.png" alt="Icon" />
+            </div>
+            <h3>TRIPLE STRENGTHS</h3>
+          </div>
+        </BaseGrid>
+        <BaseGrid :cols="2" align-items="center">
+          <div class="grid-item">
+            <p>
+              Nexum first*defense is a family of managed and monitored services
+              designed to be your fist line of defense for security and
+              networking challenges. Our team of certified experts located at
+              our redundant US-based Security and Network Operation Command
+              Centers (SNOCCs) are available around the clock to help augment
+              your own technical staff.
+            </p>
+            <p>
+              <strong>
+                These attributes provide the service level you want and the
+                compliance you can rely on from a leading managed service:
+              </strong>
+            </p>
+
+            <ul>
+              <li>100% US-based support (SNOCC and engineers)</li>
+              <li>SOC -II Type 2 and PCI compliant</li>
+              <li>Dedicated Network Security Engineer</li>
+              <li>
+                Experience in delivering first*defense solution since 2006
+              </li>
+            </ul>
+          </div>
+          <div class="grid-item">
+            <img src="/solutions-transport.png" alt="Solutions transport" />
+          </div>
+        </BaseGrid>
+      </div>
+    </section>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+  .light-background {
+    background-color: var(--lightblue);
+    background-image: url('/bg-light.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   ul {
     list-style: none;
     padding-left: 0;
@@ -134,13 +240,60 @@
     padding: 0 0 30px;
   }
 
-  .grid-item {
-    > img {
+  .overview-title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    img {
+      margin: 0 auto;
       width: 100%;
-      max-width: 700px;
-      margin-top: -40px;
-      align-self: flex-end;
+      max-width: 500px;
     }
+    h2 {
+      font-size: clamp(28px, 5vw, 54px);
+      font-weight: 200;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  .section-main {
+    .container {
+      max-width: 1024px;
+      padding: 60px 20px;
+    }
+    .grid-item {
+      img {
+        width: 100%;
+        max-width: 150px;
+      }
+    }
+  }
+
+  .section-lead {
+    text-align: center;
+    max-width: 1024px;
+    margin: 0 auto 120px;
+    p {
+      font-size: clamp(18px, 5vw, 22px);
+      font-weight: 600;
+    }
+  }
+
+  .two-thirds-grid {
+    .grid-item {
+      > img {
+        width: 100%;
+        max-width: 700px;
+        margin-top: -40px;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .grid-item {
     h3 {
       color: var(--orange);
       text-align: center;
@@ -155,11 +308,90 @@
     margin: 80px auto;
   }
 
+  .icon-text-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .grid-item {
+        flex: 1 0 100%;
+        max-width: 100%;
+
+        img {
+          width: 100%;
+          display: block;
+          margin: 0 auto;
+        }
+
+        h4 {
+          margin: 0;
+          color: var(--orange);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        p {
+          margin: 0;
+          color: var(--black);
+          font-size: clamp(16px, 5vw, 18px);
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      .row {
+        flex-direction: row;
+        align-items: center;
+        gap: 60px;
+
+        &.reverse {
+          flex-direction: row-reverse;
+        }
+
+        .grid-item {
+          &:first-child {
+            flex: 1 0 30%;
+            max-width: 200px;
+          }
+          &:last-child {
+            flex: 3 0 60%;
+          }
+        }
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .row {
+        .grid-item {
+          &:first-child {
+            flex: 1 0 25%;
+          }
+          &:last-child {
+            flex: 3 0 75%;
+          }
+        }
+      }
+    }
+  }
+
   @media (min-width: 768px) {
     .border-bottom {
       font-size: 21px;
       padding: 0 0 30px;
       border-bottom: 4px solid var(--lightorange);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .section-main {
+      .container {
+        padding: 60px 0;
+      }
     }
   }
 </style>
