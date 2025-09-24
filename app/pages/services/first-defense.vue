@@ -144,64 +144,6 @@
         </div>
       </div>
     </section>
-
-    <section class="section-two container">
-      <div class="floating-box">
-        <BaseLogoFirstDefense />
-        <h2>TRIPLE STRENGTHS</h2>
-
-        <BaseGrid :cols="3">
-          <div class="grid-item">
-            <div class="grid-icon">
-              <img src="/icons/icon-globe.png" alt="Icon" />
-            </div>
-            <h3>TRIPLE STRENGTHS</h3>
-          </div>
-          <div class="grid-item">
-            <div class="grid-icon">
-              <img src="/icons/icon-agents.png" alt="Icon" />
-            </div>
-            <h3>TRIPLE STRENGTHS</h3>
-          </div>
-          <div class="grid-item">
-            <div class="grid-icon">
-              <img src="/icons/icon-gear.png" alt="Icon" />
-            </div>
-            <h3>TRIPLE STRENGTHS</h3>
-          </div>
-        </BaseGrid>
-        <BaseGrid :cols="2" align-items="center">
-          <div class="grid-item">
-            <p>
-              Nexum first*defense is a family of managed and monitored services
-              designed to be your fist line of defense for security and
-              networking challenges. Our team of certified experts located at
-              our redundant US-based Security and Network Operation Command
-              Centers (SNOCCs) are available around the clock to help augment
-              your own technical staff.
-            </p>
-            <p>
-              <strong>
-                These attributes provide the service level you want and the
-                compliance you can rely on from a leading managed service:
-              </strong>
-            </p>
-
-            <ul>
-              <li>100% US-based support (SNOCC and engineers)</li>
-              <li>SOC -II Type 2 and PCI compliant</li>
-              <li>Dedicated Network Security Engineer</li>
-              <li>
-                Experience in delivering first*defense solution since 2006
-              </li>
-            </ul>
-          </div>
-          <div class="grid-item">
-            <img src="/solutions-transport.png" alt="Solutions transport" />
-          </div>
-        </BaseGrid>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -263,6 +205,7 @@
     .container {
       max-width: 1024px;
       padding: 60px 20px;
+      margin-bottom: 0;
     }
     .grid-item {
       img {
@@ -390,7 +333,7 @@
   @media (min-width: 1200px) {
     .section-main {
       .container {
-        padding: 60px 0;
+        padding: 60px 0 120px;
       }
     }
   }
