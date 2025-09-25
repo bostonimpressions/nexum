@@ -134,7 +134,12 @@
             :class="{ reverse: index % 2 === 1 }"
           >
             <div class="grid-item">
-              <img :src="row.imgSrc" :alt="row.imgAlt" />
+              <img
+                :src="row.imgSrc"
+                :alt="row.imgAlt"
+                width="150"
+                height="150"
+              />
             </div>
             <div class="grid-item">
               <h4>{{ row.title }}</h4>

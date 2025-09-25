@@ -6,43 +6,49 @@
         { label: 'Our Solutions', url: '/solutions' },
         {
           label: 'Enterprise & Network Security',
-          url: '/enterprise-and-security',
+          url: '',
         },
-        { label: 'Cloud Security', url: '/cloud-security' },
-        { label: 'Identity & Access', url: '/identity-and-access' },
+        { label: 'Cloud Security', url: '' },
+        { label: 'Identity & Access', url: '' },
         {
           label: 'Data Center & Networking',
-          url: '/data-center-and-networking',
+          url: '',
         },
-        { label: 'Application Security', url: '/application-security' },
+        { label: 'Application Security', url: '' },
       ],
     },
     {
       title: 'Services',
       links: [
         { label: 'Our Services', url: '/services' },
-        { label: 'Professional Services', url: '/professional-services' },
-        { label: 'Security Assessment', url: '/security-assessment' },
+        {
+          label: 'Professional Services',
+          url: '/services/professional-services',
+        },
+        {
+          label: 'Security Assessment',
+          url: '/services/assessment-and-advisory-services',
+        },
         {
           label: 'Managed Security Services',
-          url: '/managed-security-services',
+          url: '',
         },
         {
           label: 'Manufacturer Authorized Services',
-          url: '/manufactured-authorized-services',
+          url: '',
         },
       ],
     },
     {
       title: 'Company',
       links: [
-        { label: 'About', url: '/about' },
-        { label: 'Contact Us', url: '/contact' },
-        { label: 'Veterans', url: '/veterans' },
-        { label: 'Leadership', url: '/leadership' },
+        { label: 'About', url: '/company/about-us' },
+        { label: 'Contact Us', url: '/company/contact-us' },
+        { label: 'Veterans', url: '/company/veterans' },
+        { label: 'Leadership', url: '/company/leadership' },
         { label: 'Partners', url: '/partners' },
-        { label: 'Careers', url: '/careers' },
-        { label: 'Branding', url: '/branding' },
+        { label: 'Careers', url: '/company/careers' },
+        { label: 'Branding', url: '/company/branding' },
       ],
     },
   ]
@@ -65,8 +71,8 @@
               target="_blank"
             >
               <svg
-                width="12"
-                height="13"
+                width="14"
+                height="14"
                 viewBox="0 0 12 13"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +93,8 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 version="1.1"
+                width="14"
+                height="14"
                 viewBox="0 0 12 12"
               >
                 <path

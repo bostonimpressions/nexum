@@ -87,19 +87,20 @@ export const nexumFonts = [
 ]
 
 export const nexumColors = [
-  {
-    name: 'Nexum Blue',
-    hex: '#0072CE',
-    rgb: '0, 114, 206',
-    cmyk: '1.00, 0.45, 0.00, 0.19',
-    pantone: 'PMS 285 C',
-  },
+  
   {
     name: 'Dark Blue',
     hex: '#003366',
     rgb: '0, 51, 102',
     cmyk: '1.00, 0.50, 0.00, 0.60',
     pantone: null,
+  },
+  {
+    name: 'Maya Blue',
+    hex: '#0072CE',
+    rgb: '0, 114, 206',
+    cmyk: '1.00, 0.45, 0.00, 0.19',
+    pantone: 'PMS 285 C',
   },
   {
     name: 'Gold',
