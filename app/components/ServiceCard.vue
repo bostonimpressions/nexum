@@ -24,10 +24,15 @@
 </template>
 
 <style scoped lang="scss">
+  $lightorange: #fff5e6;
+  $lightblue: #ddf2ff;
+  $lightgray: #f0f2f5;
+  $lightcolor: $lightorange;
+
   .service-card {
     position: relative;
     border-radius: 15px;
-    background-color: #f0f2f5;
+    background-color: $lightgray;
     background-image: url('/bg-abstract-squares.png');
     background-size: cover;
     background-position: center;
@@ -43,17 +48,17 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: #f0f2f5;
+      background: $lightgray;
       opacity: 0.35; // image opacity
       z-index: 0;
     }
 
     &:hover {
-      background-color: #ddf2ff;
+      background-color: $lightcolor;
       transform: translateY(-6px);
 
       &::before {
-        background: #ddf2ff;
+        background: $lightcolor;
       }
 
       .arrow {

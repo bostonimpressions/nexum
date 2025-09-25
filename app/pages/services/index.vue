@@ -95,7 +95,6 @@
       </BaseGrid>
     </div>
   </section>
-  <SectionServiceMain />
 </template>
 
 <style lang="scss" scoped>
