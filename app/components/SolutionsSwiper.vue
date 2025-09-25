@@ -7,12 +7,12 @@
   const slides = [
     {
       name: 'Enterprise & Network Security',
-      icon: '/icon-network-security.png',
+      icon: '/icon-application-security.png',
     },
     { name: 'Cloud Security', icon: '/icon-cloud-security.png' },
     { name: 'Identity & Access', icon: '/icon-identity-access.png' },
-    { name: 'Strategy & Advisory', icon: '/icon-strategy.png' },
-    { name: 'Data Protection', icon: '/icon-data-protection.png' },
+    { name: 'Strategy & Advisory', icon: '/icon-network-security.png' },
+    { name: 'Data Protection', icon: '/icon-datacenter.png' },
   ]
 </script>
 

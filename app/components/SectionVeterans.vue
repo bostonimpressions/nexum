@@ -18,7 +18,7 @@
           organizations, and support our current veteran team members. In fact,
           11% of Nexum employees are veterans or first responders.
         </p>
-        <BaseButton>Read More</BaseButton>
+        <BaseButton link to="/company/veterans">Read More</BaseButton>
       </BaseBanner>
     </div>
   </section>

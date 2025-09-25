@@ -11,7 +11,7 @@
       content: `Nexum’s first defense  can augment your team’s operations by monitoring for attacks, investigating potential breaches, proactively blocking bad actors, and keeping essential security components up to date.`,
       link: {
         text: `Learn More`,
-        url: ``,
+        url: `/services/first-defense`,
         variant: ``,
       },
     },
@@ -22,7 +22,7 @@
       content: `Nexum’s custom security, cloud, and network solutions mitigate risk and protect your IT and information assets, from enterprise and network security to strategy and advisory services. Protect your IT with custom security and cloud solutions.`,
       link: {
         text: `Learn More`,
-        url: ``,
+        url: `/solutions`,
         variant: `orange`,
         solid: true,
       },
@@ -35,7 +35,7 @@
       content: `Nexum’s risk management services help you identify, evaluate, rate, and remediate security and continuity vulnerabilities. Our experienced engineers can perform a multi-point, holistic health check of your security posture.`,
       link: {
         text: `Learn More`,
-        url: ``,
+        url: `/services`,
         variant: ``,
       },
     },
