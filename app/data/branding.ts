@@ -2,23 +2,23 @@
 
 export const nexumLogos = [
   {
-    preview: '/branding/Nexum-Logo_RGB_blue.png',
+    preview: '/branding/Nexum Logo Air Force Blue WEB.png',
     title: `Primary Logo`,
     links: [
-      { title: 'JPG', url: '/branding/Nexum-Logo_RGB_blue.jpg' },
-      { title: 'EPS', url: '/branding/Nexum-Logo_RGB_blue.eps' },
-      { title: 'PNG', url: '/branding/Nexum-Logo_RGB_blue.png' },
+      { title: 'JPG', url: '/branding/Nexum Logo Air Force Blue.jpg' },
+      { title: 'EPS', url: '/branding/Nexum Logo Nexum Blue.eps' },
+      { title: 'PNG', url: '/branding/Nexum Logo Air Force Blue.png' },
     ],
   },
-  {
-    preview: '/branding/Nexum-Logo_RGB_blue.png',
-    title: `Secondary Logo`,
-    links: [
-      { title: 'JPG', url: '/branding/Nexum-Logo_RGB_blue.jpg' },
-      { title: 'EPS', url: '/branding/Nexum-Logo_RGB_blue.eps' },
-      { title: 'PNG', url: '/branding/Nexum-Logo_RGB_blue.png' },
-    ],
-  },
+  // {
+  //   preview: '/branding/Nexum-Logo_RGB_blue.png',
+  //   title: `Secondary Logo`,
+  //   links: [
+  //     { title: 'JPG', url: '/branding/Nexum-Logo_RGB_blue.jpg' },
+  //     { title: 'EPS', url: '/branding/Nexum-Logo_RGB_blue.eps' },
+  //     { title: 'PNG', url: '/branding/Nexum-Logo_RGB_blue.png' },
+  //   ],
+  // },
   {
     preview: '/branding/Nexum-Logo_RGB_white.png',
     title: `White Logo`,
@@ -89,18 +89,19 @@ export const nexumFonts = [
 export const nexumColors = [
   
   {
-    name: 'Dark Blue',
-    hex: '#003366',
-    rgb: '0, 51, 102',
-    cmyk: '1.00, 0.50, 0.00, 0.60',
-    pantone: null,
+    name: 'Nexum Blue',
+    hex: '#003087',
+    rgb: '0, 48, 135',
+    cmyk: '100, 91, 17, 6',
+    pantone: 'PMS REFLEX BLUE C',
   },
   {
     name: 'Maya Blue',
-    hex: '#0072CE',
-    rgb: '0, 114, 206',
-    cmyk: '1.00, 0.45, 0.00, 0.19',
-    pantone: 'PMS 285 C',
+    hex: '#7CC6F2',
+    rgb: '124, 198, 242',
+    cmyk: '46, 7, 0, 0',
+    pantone: 'PMS 298C',
+
   },
   {
     name: 'Gold',

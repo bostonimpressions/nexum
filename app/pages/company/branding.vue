@@ -6,7 +6,9 @@
   <Hero theme="branding">
     <h1>Branding</h1>
     <p>Use these resources to keep our brand consistent and secure.</p>
-    <a href="#">Download official assets and review usage standards.</a>
+    <a href="/branding/Nexum Branding Guide 2024.pdf" target="_blank"
+      >Download official assets and review usage standards.</a
+    >
   </Hero>
 
   <section class="section-one">
