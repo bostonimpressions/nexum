@@ -17,7 +17,7 @@
         <h2>Nexum Logo</h2>
 
         <BaseGrid :cols="4">
-          <div v-for="item in nexumLogos" class="grid-item card">
+          <div v-for="item in nexumLogos" :key="item.title" class="grid-item card">
             <div class="preview">
               <img :src="item.preview" alt="Asset preview" />
             </div>
@@ -42,7 +42,7 @@
         <h2>Nexum first<span>*</span>defense<sup>®</sup> Logo</h2>
 
         <BaseGrid :cols="4">
-          <div v-for="item in firstDefenseLogos" class="grid-item card">
+          <div v-for="item in firstDefenseLogos" :key="item.title" class="grid-item card">
             <div class="preview">
               <img :src="item.preview" alt="Asset preview" />
             </div>
@@ -74,11 +74,17 @@
             class="grid-item color-card"
             :style="{ backgroundColor: color.hex }"
           >
-            <h5 class="title">{{ color.name }}</h5>
-            <p>HEX {{ color.hex }}</p>
-            <p>RGB {{ color.rgb }}</p>
-            <p>CMYK {{ color.cmyk }}</p>
-            <p v-if="color.pantone">Pantone {{ color.pantone }}</p>
+            <div class="wrap">
+              <div class="card-title">
+                <h5 class="title">{{ color.name }}</h5>
+              </div>
+              <div class="card-body">
+                <p><span>HEX</span> {{ color.hex }}</p>
+                <p><span>RGB</span> {{ color.rgb }}</p>
+                <p><span>CMYK</span> {{ color.cmyk }}</p>
+                <p v-if="color.pantone"><span>Pantone</span> {{ color.pantone }}</p>
+              </div>
+            </div>
           </div>
         </BaseGrid>
       </div>
@@ -112,13 +118,16 @@
       font-weight: 400;
     }
   }
+  .base-grid {
+    gap: 2px !important;
+  }
   .card {
     display: flex;
     padding: 26px 17px;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    border-radius: 6px;
+    //border-radius: 6px;
     background: rgba(77, 77, 77, 0.06);
 
     .preview {
@@ -173,16 +182,19 @@
     }
   }
   .color-card {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
     padding: 20px;
-    min-height: 185px;
-    border-radius: 6px;
+    min-height: 280px;
     h5,
     p {
       color: var(--white);
+    }
+    .title {
+      color: rgba(255,255,255,0.75);
     }
 
     &:nth-child(6) {
@@ -190,19 +202,48 @@
       p {
         color: var(--black);
       }
+      .title {
+        color: rgba(0,0,0,0.75);
+      }
+    }
+
+    .card-title {
+      position: absolute;
+      bottom: 0;
+      transform: rotate(-90deg);
+      transform-origin: left top;
+    }
+
+    .card-body {
+      padding-left: 55px;
     }
 
     .title {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 24px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0;
+      white-space: nowrap;
+      display: inline-block;
     }
 
     p {
-      margin: 2px 0;
-      font-size: 16px;
+      margin: 10px 0;
+      font-size: 20px;
       font-weight: 400;
       text-transform: uppercase;
+      letter-spacing: .75px;
+      &:first-child {
+        margin-top: 0;
+      }
+
+      span {
+        display: block;
+        font-size: .55em;
+        font-weight: 600;
+        line-height: 1;
+      }
     }
   }
 </style>
