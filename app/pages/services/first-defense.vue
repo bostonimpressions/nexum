@@ -80,12 +80,15 @@
           </strong>
         </p>
 
-        <ul>
-          <li>100% US-based support (SNOCC and engineers)</li>
-          <li>SOC -II Type 2 and PCI compliant</li>
-          <li>Dedicated Network Security Engineer</li>
-          <li>Experience in delivering first*defense solution since 2006</li>
-        </ul>
+        <BaseBulletList
+          variant="basic"
+          :items="[
+            '100% US-based support (SNOCC and engineers)',
+            'SOC -II Type 2 and PCI compliant',
+            'Dedicated Network Security Engineer',
+            'Experience in delivering first*defense solution since 2006',
+          ]"
+        />
       </div>
     </BaseGrid>
   </Overview>
@@ -158,29 +161,6 @@
     background-image: url('/bg-light.png');
     background-repeat: no-repeat;
     background-size: cover;
-  }
-  ul {
-    list-style: none;
-    padding-left: 0;
-    color: var(--blue);
-
-    li {
-      position: relative;
-      padding-left: 1.2rem;
-
-      &::marker {
-        color: var(--orange);
-      }
-
-      // fallback if ::marker not supported
-      &::before {
-        content: '•';
-        position: absolute;
-        left: 0;
-        color: var(--orange);
-        font-weight: bold;
-      }
-    }
   }
 
   .border-bottom {

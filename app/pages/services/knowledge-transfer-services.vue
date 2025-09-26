@@ -1,4 +1,18 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import InfoGrid from '~/components/InfoGrid.vue'
+
+  const teamGains = [
+    "Review of your current relevant technology environment",
+    "Customize an agenda that fits your training/knowledge transfer needs according to your environment, organized by modules you are using in your environment and or modules you are interested in implementing.",
+    "General high-level review of vendor/technology concepts",
+    "Deep reviews of relevant parts of environment",
+    "Go over existing configurations and features you are using",
+    "During knowledge transfer, provide practical, spoken guidance around optimization, performance, and security, delivered within the context of your setup",
+    "Go over how to troubleshoot your applications and tools available based on modules that are being used in your environment",
+    "All knowledge transfer sessions are interactive with flexible scheduling sessions"
+  ]
+
+</script>
 
 <template>
   <HeroSubpage>
@@ -161,6 +175,21 @@
       </div>
     </BaseBanner>
   </section>
+
+  <section class="section-two features">
+    <div class="container">
+      <h2>Built For Your Team's Success</h2>
+      <InfoGrid />
+    </div>
+
+    <div class="container container-collapse">
+      <div class="explainer">
+        <h3>What a sample knowledge transfer engagement might include:</h3>
+        <BaseBulletList :items="teamGains" variant="basic" />
+      </div>
+    </div>
+
+  </section>
 </template>
 
 <style lang="scss" scoped>
@@ -235,6 +264,13 @@
     border-radius: 15px;
   }
 
+  .explainer {
+    background: var(--lightblue);
+    padding: 30px;
+    h3 {
+      margin: 0 0 20px;
+    }
+  }
   @media (min-width: 768px) {
     .border-box {
       padding: 50px 40px;
@@ -270,6 +306,11 @@
       .list {
         padding: 30px 0 0 40px;
       }
+    }
+
+    .explainer {
+      border-radius: 20px;
+      padding: 60px;
     }
   }
 </style>

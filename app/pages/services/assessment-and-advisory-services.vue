@@ -72,15 +72,12 @@
               class="panel-right"
               v-if="service.bulletList && service.bulletList.length"
             >
-              <ul>
-                <li
-                  v-for="(bullet, bIndex) in service.bulletList"
-                  :key="bIndex"
-                >
-                  <img src="/icons/icon-check.png" alt="" class="bullet-icon" />
-                  {{ bullet }}
-                </li>
-              </ul>
+              <BaseBulletList
+                :items="service.bulletList"
+                variant="checkboxes"
+                iconColor="var(--mediumblue)"
+                textColor="var(--mediumblue)"
+              />
             </div>
           </div>
         </transition>
@@ -193,26 +190,6 @@
       padding: 20px;
       border-radius: 9px;
       background: rgba(124, 198, 242, 0.1);
-
-      ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-          display: flex;
-          align-items: baseline;
-          margin-bottom: 8px;
-          color: var(--mediumblue);
-
-          .bullet-icon {
-            position: relative;
-            top: 5px;
-            width: 24px;
-            height: 24px;
-            margin-right: 15px;
-          }
-        }
-      }
     }
   }
 
