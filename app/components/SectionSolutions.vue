@@ -1,18 +1,28 @@
 <script setup lang="ts">
-  const solutions = [
-    {
-      name: `Enterprise & Network Security`,
-      icon: `/icon-network-security.png`,
-    },
-    {
-      name: `Cloud Security`,
-      icon: `/icon-cloud-security.png`,
-    },
-    {
-      name: `Identity & Access`,
-      icon: `/icon-identity-access.png`,
-    },
-  ]
+  import { computed } from 'vue'
+
+  const sectionOne = await useContentSection(
+    'sectionOne',
+    '/home/circle-of-solutions'
+  )
+  const sectionTwo = await useContentSection(
+    'sectionTwo',
+    '/home/our-solutions'
+  )
+  const sectionThree = await useContentSection(
+    'sectionThree',
+    '/home/solution-first-defense'
+  )
+
+  const sectionOneButtons = computed(
+    () => sectionOne.value?.meta?.buttons || []
+  )
+  const sectionThreeButtons = computed(
+    () => sectionThree.value?.meta?.buttons || []
+  )
+  const sectionThreeImage = computed(
+    () => sectionThree.value?.meta?.imgs?.[0] || {}
+  )
 </script>
 
 <template>
@@ -21,27 +31,17 @@
       <div class="row-one">
         <div class="two-col-grid">
           <div class="grid-item">
-            <h2>Our Circle of Solutions</h2>
-            <p>
-              We specialize in designing, implementing and managing agile,
-              secure digital platforms that enable customers to move their
-              businesses at a faster pace and innovate in the way they interact
-              with their customers, employees and partners.
-            </p>
-            <p>
-              We also provide services to ease procurement globally with a suite
-              of flexible financing and consumption options.
-            </p>
-            <p>
-              With deep expertise across data, applications, infrastructure,
-              user experience and operations, our services experts are thinkers
-              AND doers, focused on accelerating time-to-outcome for our
-              customers.
-            </p>
+            <h2>{{ sectionOne.title }}</h2>
+            <ContentRenderer :value="sectionOne" />
 
             <div class="button-row">
-              <BaseButton>Download our Circle of Solutions</BaseButton>
-              <BaseButton>Book a Demo</BaseButton>
+              <BaseButton
+                v-for="btn in sectionOneButtons"
+                :key="btn.label"
+                :to="btn.link"
+              >
+                {{ btn.label }}
+              </BaseButton>
             </div>
           </div>
           <div class="grid-item">
@@ -50,40 +50,33 @@
         </div>
       </div>
       <div class="row-two">
-        <h2>Our Solutions</h2>
-        <p>
-          Nexum’s custom security, cloud, and network solutions mitigate risk
-          and protect your IT and information assets, from enterprise and
-          network security to strategy and advisory services. Protect your IT
-          with custom security and cloud solutions.
-        </p>
-
+        <h2>{{ sectionTwo.title }}</h2>
+        <ContentRenderer :value="sectionTwo" />
         <SolutionsSwiper />
       </div>
     </div>
     <div class="row-three">
       <div class="container">
-        <div class="two-col-grid">
+        <BaseGrid>
           <div class="grid-item">
-            <h2 class="sr-only">First Defense</h2>
+            <h2 class="sr-only">{{ sectionThree.title }}</h2>
             <BaseLogoFirstDefense />
-            <p>
-              Nexum is a SOC 2 Type 2-compliant Managed Security Service
-              Provider (MSSP) with a range of services to help you defend your
-              network efficiently and effectively. Most importantly,  with
-              Nexum first*defense®, our manufacturer-authorized technical
-              support team is available 24/7 via telephone, email, and web-based
-              portal.
-            </p>
+            <ContentRenderer :value="sectionThree" />
 
             <div class="button-row">
-              <BaseButton solid>Book a Demo</BaseButton>
+              <BaseButton
+                v-for="btn in sectionThreeButtons"
+                :key="btn.label"
+                :to="btn.link"
+              >
+                {{ btn.label }}
+              </BaseButton>
             </div>
           </div>
           <div class="grid-item">
-            <img src="/solutions-transport.png" alt="Solutions transport" />
+            <img :src="sectionThreeImage.url" :alt="sectionThreeImage.alt" />
           </div>
-        </div>
+        </BaseGrid>
       </div>
     </div>
   </section>
@@ -109,6 +102,10 @@
 
       + .grid-item {
         align-items: center;
+      }
+
+      > [data-content-id] {
+        display: contents;
       }
     }
   }

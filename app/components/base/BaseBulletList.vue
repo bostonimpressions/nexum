@@ -1,13 +1,18 @@
 <script setup lang="ts">
-  const { items, iconColor, textColor, variant } = withDefaults(
-    defineProps<{
-      items: string[]
-      iconColor?: string
-      textColor?: string
-      variant?: 'default' | 'checkboxes' | 'basic'
-    }>(),
-    { variant: 'default' }
-  )
+  const props = defineProps<{
+    items: string[]
+    iconColor?: string
+    textColor?: string
+    variant?: 'default' | 'compact'
+  }>()
+
+  // Destructure with defaults inline
+  const {
+    items,
+    iconColor = 'var(--lightorange)',
+    textColor = 'var(--white)',
+    variant = 'default',
+  } = props
 </script>
 
 <template>
@@ -45,7 +50,6 @@
 </template>
 
 <style scoped lang="scss">
-
   .bullet-list {
     list-style: none;
     padding: 0;
@@ -122,6 +126,4 @@
       }
     }
   }
-
-
 </style>

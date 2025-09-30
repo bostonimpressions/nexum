@@ -1,3 +1,31 @@
+export const allServices = [
+  {
+    url: '/services/professional-services',
+    title: 'Professional Services',
+    body: 'Nexum Professional Services help you optimize investments, lower operating costs, and ensure your systems are deployed efficiently and correctly with the support of our top industry experts and resources.',
+  },
+  {
+    url: '/services/assessment-and-advisory-services',
+    title: 'Assessment & Advisory',
+    body: 'Nexum delivers actionable insights and tailored recommendations that enable you to reduce risk, strengthen defenses, and align your security investments with your business objectives.',
+  },
+  {
+    url: '/services/technical-support-services',
+    title: 'Technical Support',
+    body: 'Our experienced, vendor-certified support engineers are your first line of defense for various services, including secure ticket access, asset tracking, break/fix troubleshooting, and much more.',
+  },
+  {
+    url: '/services/knowledge-transfer-services',
+    title: 'Knowledge Transfer',
+    body: 'Our Knowledge Transfer offering bridges the gap between deployment and daily operational excellence by equipping your teams with the practical knowledge and confidence they need to optimize performance, streamline operations, and maximize ROI.',
+  },
+  {
+    url: '/services/security-workshop',
+    title: 'Security Workshop',
+    body: 'Our Security Workshop is designed to help organizations strengthen their data and network defenses. Through expert-led sessions, we identify risks, share best practices, and provide practical guidance to improve your overall security posture.',
+  },
+]
+
 export const assessmentServices = [
   {
     title: "Penetration Testing (Internal/External)",

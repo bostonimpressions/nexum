@@ -40,6 +40,10 @@ export default defineNuxtConfig({
   },
 
   content: {
+    experimental: {
+      // @ts-ignore
+      search: true
+    },
     database: {
       type: 'sqlite',
       filename: './contents.sqlite'

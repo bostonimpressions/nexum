@@ -4,6 +4,12 @@
   const isOpen = ref(false)
   const openDropdown = ref(null)
 
+  const searchModal = ref(null)
+
+  function openSearch() {
+    searchModal.value?.openModal?.()
+  }
+
   function toggleDropdown(name) {
     openDropdown.value = openDropdown.value === name ? null : name
 
@@ -36,12 +42,17 @@
   function closeAll() {
     isOpen.value = false
     openDropdown.value = null
+    //isSearchOpen.value = false
     document.body.style.overflow = ''
   }
 
   // Close dropdown/drawer when clicking outside
   function handleClickOutside(e) {
-    if (!e.target.closest('.navigation') && !e.target.closest('.hamburger')) {
+    if (
+      !e.target.closest('.navigation') &&
+      !e.target.closest('.hamburger') &&
+      !e.target.closest('.search-modal') // <- ignore clicks inside modal
+    ) {
       closeAll()
     }
   }
@@ -317,7 +328,7 @@
             </transition>
           </li>
 
-          <li class="search">
+          <li class="search" @click="openSearch">
             <div class="icon">
               <svg
                 width="24"
@@ -346,6 +357,8 @@
         </ul>
       </nav>
     </div>
+
+    <SearchModal ref="searchModal" />
   </header>
 </template>
 

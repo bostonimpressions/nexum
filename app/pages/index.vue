@@ -9,10 +9,4 @@
   <SectionRecentVideos />
 </template>
 
-<style lang="scss" scoped>
-  @media (min-width: 768px) {
-    .test {
-      color: red;
-    }
-  }
-</style>
+<style lang="scss" scoped></style>
