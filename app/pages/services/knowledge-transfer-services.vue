@@ -40,30 +40,12 @@
     '/services/knowledge-transfer/features'
   )
   const featureItems = computed(() => features.value?.meta?.items || [])
-
-  const infoGridItems = [
-    {
-      format: 'Onsite or Remote Sessions',
-      features:
-        'Hands-on and collaborative with direct access to Nexum engineers',
-    },
-    {
-      format: 'Fully Customizable',
-      features:
-        'We tailor the scope to your environment, roles, and business objectives',
-    },
-  ]
-
-  const teamGains = [
-    'Review of your current relevant technology environment',
-    'Customize an agenda that fits your training/knowledge transfer needs according to your environment, organized by modules you are using in your environment and or modules you are interested in implementing.',
-    'General high-level review of vendor/technology concepts',
-    'Deep reviews of relevant parts of environment',
-    'Go over existing configurations and features you are using',
-    'During knowledge transfer, provide practical, spoken guidance around optimization, performance, and security, delivered within the context of your setup',
-    'Go over how to troubleshoot your applications and tools available based on modules that are being used in your environment',
-    'All knowledge transfer sessions are interactive with flexible scheduling sessions',
-  ]
+  //what-it-includes content
+  const includes = await useContentSection(
+    'includes',
+    '/services/knowledge-transfer/includes'
+  )
+  const includesItems = computed(() => includes.value?.meta?.items || [])
 </script>
 
 <template>
@@ -166,11 +148,11 @@
       <FeatureTable :items="featureItems" />
     </div>
 
-    <div class="container container-collapse">
+    <div :id="includes.meta?.anchor" class="container container-collapse">
       <div class="explainer">
-        <h3>What a sample knowledge transfer engagement might include:</h3>
+        <h3>{{ includes.title }}</h3>
         <BaseBulletList
-          :items="teamGains"
+          :items="includesItems"
           variant="basic"
           textColor="var(--blue)"
         />

@@ -134,6 +134,10 @@
     background: var(--darkgray);
     color: var(--white);
 
+    .container {
+      margin-bottom: 0;
+    }
+
     .copyright {
       margin: 60px auto 0;
     }
