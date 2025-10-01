@@ -43,10 +43,23 @@
           const description = item.description?.toLowerCase() || ''
           const excerpt = item.excerpt?.toLowerCase() || ''
 
-          // Search in body content if it exists
+          let metaItemsText = ''
+
+          if (item.meta) {
+            metaItemsText = Object.values(item.meta)
+              .filter((v) => Array.isArray(v)) // only grab arrays
+              .flat() // flatten arrays of arrays
+              .map((i) => {
+                if (typeof i === 'string') return i
+                if (typeof i === 'object') return Object.values(i).join(' ')
+                return ''
+              })
+              .join(' ')
+              .toLowerCase()
+          }
+
           let bodyText = ''
           if (item.body) {
-            // Extract text from markdown body structure
             bodyText = extractTextFromBody(item.body).toLowerCase()
           }
 
@@ -55,10 +68,11 @@
             subtitle.includes(query) ||
             description.includes(query) ||
             excerpt.includes(query) ||
-            bodyText.includes(query)
+            bodyText.includes(query) ||
+            metaItemsText.includes(query)
           )
         })
-        .slice(0, 10) // Limit to 10 results
+        .slice(0, 10)
 
       searchResults.value = results
 
