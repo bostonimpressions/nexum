@@ -31,14 +31,14 @@
     <h1>
       {{ hero.title }}
       <div class="subheading">
-        {{ hero?.meta.subtitle }}
+        {{ hero.meta?.subtitle }}
       </div>
     </h1>
 
     <ContentRenderer :value="hero" />
   </Hero>
 
-  <section class="section-services">
+  <section :id="sectionFirstDefense.meta?.anchor" class="section-services">
     <div class="container">
       <div class="row-wrapper">
         <BaseGrid>
@@ -87,7 +87,7 @@
 
 <style lang="scss" scoped>
   .section-services {
-    margin: 80px auto;
+    padding: 80px 0;
   }
 
   .row-wrapper {

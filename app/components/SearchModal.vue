@@ -31,12 +31,15 @@
       // Get all content from the collection
       const allContent = await queryCollection('content').all()
 
+      console.log('all content', allContent)
+
       // Filter results based on search query
       const query = searchQuery.value.toLowerCase()
 
       const results = allContent
         .filter((item) => {
           const title = item.title?.toLowerCase() || ''
+          const subtitle = item.meta?.subtitle?.toLowerCase() || ''
           const description = item.description?.toLowerCase() || ''
           const excerpt = item.excerpt?.toLowerCase() || ''
 
@@ -49,6 +52,7 @@
 
           return (
             title.includes(query) ||
+            subtitle.includes(query) ||
             description.includes(query) ||
             excerpt.includes(query) ||
             bodyText.includes(query)
@@ -57,6 +61,8 @@
         .slice(0, 10) // Limit to 10 results
 
       searchResults.value = results
+
+      console.log('results -', results)
     } catch (error) {
       console.error('Search error:', error)
       searchResults.value = []
@@ -126,7 +132,10 @@
 
   // Navigate to selected result
   const navigateToResult = (result) => {
-    navigateTo(result._path)
+    const path = result.meta?.route || result._path || '/'
+    const anchor = result.meta?.anchor ? `#${result.meta.anchor}` : ''
+    console.log('Navigating to:', path + anchor)
+    navigateTo(path + anchor)
     closeModal()
   }
 
@@ -276,7 +285,9 @@
                     class="result-title"
                     v-html="highlightText(result.title, searchQuery)"
                   ></div>
-                  <div class="result-path">{{ result._path }}</div>
+                  <div class="result-path">
+                    {{ result._path ? result._path : result.meta?.route }}
+                  </div>
                   <div v-if="getExcerpt(result)" class="result-excerpt">
                     {{ getExcerpt(result) }}
                   </div>

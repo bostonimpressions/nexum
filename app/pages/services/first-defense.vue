@@ -1,4 +1,19 @@
 <script setup lang="ts">
+  //hero content
+  const hero = await useContentSection('hero', '/services/first-defense/hero')
+  //overview content
+  const overview = await useContentSection(
+    'overview',
+    '/services/first-defense/overview'
+  )
+  const overviewTwo = await useContentSection(
+    'overviewTwo',
+    '/services/first-defense/overview-two'
+  )
+  const overviewTwoImage = computed(
+    () => overviewTwo.value?.meta?.imgs?.[0] || {}
+  )
+
   interface iconWithText {
     imgSrc: string
     imgAlt: string
@@ -59,35 +74,22 @@
 <template>
   <HeroSubpage>
     <template #logo><BaseLogoFirstDefense /></template>
-    <template #heading> Managed & Monitored Services </template>
+    <template #heading> {{ hero.title }} </template>
   </HeroSubpage>
-  <Overview>
+  <Overview :id="overview.meta?.anchor">
     <BaseGrid :cols="2">
       <div class="grid-item">
-        <p>
-          Nexum first*defense is a family of managed and monitored services
-          designed to be your fist line of defense for security and networking
-          challenges. Our team of certified experts located at our redundant
-          US-based Security and Network Operation Command Centers (SNOCCs) are
-          available around the clock to help augment your own technical staff.
-        </p>
+        <ContentRenderer :value="overview" />
       </div>
+
       <div class="grid-item">
         <p>
-          <strong>
-            These attributes provide the service level you want and the
-            compliance you can rely on from a leading managed service:
-          </strong>
+          <strong>{{ overview.meta?.bulletDesc }}</strong>
         </p>
-
         <BaseBulletList
+          :items="overview.meta?.bullets"
           variant="basic"
-          :items="[
-            '100% US-based support (SNOCC and engineers)',
-            'SOC -II Type 2 and PCI compliant',
-            'Dedicated Network Security Engineer',
-            'Experience in delivering first*defense solution since 2006',
-          ]"
+          text-color="var(--blue)"
         />
       </div>
     </BaseGrid>
@@ -96,14 +98,12 @@
   <SectionDarkCurved>
     <BaseGrid align-items="center" class="two-thirds-grid">
       <div class="grid-item">
-        <p class="border-bottom">
-          Our first*defense solution focuses on providing exceptional customer
-          services and delivery of the security outcomes needed to maintain
-          compliance and limit exposure to cybersecurity threats.
-        </p>
+        <div class="border-bottom">
+          <ContentRenderer :value="overviewTwo" />
+        </div>
       </div>
       <div class="grid-item">
-        <img src="/solutions-transport-light.png" alt="Solutions transport" />
+        <img :src="overviewTwoImage.url" :alt="overviewTwoImage.alt" />
       </div>
     </BaseGrid>
   </SectionDarkCurved>
