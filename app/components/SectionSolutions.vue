@@ -26,7 +26,7 @@
 </script>
 
 <template>
-  <section class="section-solutions">
+  <section :id="sectionOne.meta?.anchor" class="section-solutions">
     <div class="container">
       <div class="row-one">
         <div class="two-col-grid">
@@ -49,13 +49,13 @@
           </div>
         </div>
       </div>
-      <div class="row-two">
+      <div :id="sectionTwo.meta?.anchor" class="row-two">
         <h2>{{ sectionTwo.title }}</h2>
         <ContentRenderer :value="sectionTwo" />
         <SolutionsSwiper />
       </div>
     </div>
-    <div class="row-three">
+    <div :id="sectionThree.meta?.anchor" class="row-three">
       <div class="container">
         <BaseGrid>
           <div class="grid-item">

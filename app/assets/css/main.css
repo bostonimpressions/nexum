@@ -100,7 +100,7 @@ h5 {
 p {
   color: var(--blue);
   font-family: 'PT Sans', sans-serif;
-  font-size: 18px;
+  font-size: clamp(16px, 5vw, 18px);
   font-style: normal;
   font-weight: 400;
 }

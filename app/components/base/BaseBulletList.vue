@@ -89,14 +89,14 @@
         align-items: baseline;
         gap: 15px;
         margin: 0 0 10px;
-        font-size: 18px;
+        font-size: 16px;
         text-align: left;
 
         .bullet-icon {
           position: relative;
-          top: 7px;
-          width: 22px;
-          height: 22px;
+          top: 5px;
+          width: 18px;
+          height: 18px;
         }
       }
     }
@@ -122,6 +122,19 @@
           left: 0;
           color: var(--orange);
           font-weight: bold;
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      &.checkboxes {
+        li {
+          font-size: 18px;
+          .bullet-icon {
+            top: 7px;
+            width: 22px;
+            height: 22px;
+          }
         }
       }
     }

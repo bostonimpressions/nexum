@@ -1,24 +1,28 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  //veterans content
+  const veterans = await useContentSection('veterans', '/home/veterans')
+  const veteransImage = computed(() => veterans.value?.meta?.imgs?.[0] || {})
+  const veteransButtons = computed(() => veterans.value?.meta?.buttons || [])
+</script>
 
 <template>
-  <section class="section-veterans">
-    <div class="container">
+  <section :id="veterans.meta?.anchor" class="section-veterans">
+    <div class="container container-collapse">
       <BaseBanner>
         <div class="icon">
-          <img src="/logo-asdad.png" alt="ASDAD" />
+          <img :src="veteransImage.url" :alt="veteransImage.alt" />
         </div>
-        <h2>11% of Nexum employees are veterans or first responders</h2>
-        <p>
-          Nexum, Inc. is a Service-Disabled Veteran-Owned Small Business
-          (SDVOSB), verified by the U.S. Department of Veterans Affairs (VA). To
-          qualify as an SDVOSB, a business must be owned or controlled by a
-          Service-Disabled Veteran.
-          <br />
-          We take great pride in this designation, contribute to veteran
-          organizations, and support our current veteran team members. In fact,
-          11% of Nexum employees are veterans or first responders.
-        </p>
-        <BaseButton link to="/company/veterans">Read More</BaseButton>
+        <h2>{{ veterans.title }}</h2>
+        <ContentRenderer :value="veterans" />
+
+        <BaseButton
+          v-for="btn in veteransButtons"
+          link
+          :key="btn.label"
+          :to="btn.link"
+        >
+          {{ btn.label }}
+        </BaseButton>
       </BaseBanner>
     </div>
   </section>

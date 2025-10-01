@@ -1,5 +1,7 @@
 ---
 title: 'Our Circle of Solutions'
+route: '/'
+anchor: 'circleOfSolutions'
 components:
   - name: 'CircleOfSolutions'
     url: ''

@@ -1,37 +1,37 @@
 <script setup lang="ts">
-  import { assessmentServices as servicesData } from '~/data/services'
-  import { reactive } from 'vue'
+  import { ref } from 'vue'
 
-  // create a reactive copy so Vue tracks `expanded`
-  const assessmentServices = reactive(
-    servicesData.map((service) => ({ ...service, expanded: false }))
+  //hero content
+  const hero = await useContentSection(
+    'hero',
+    '/services/assessment-and-advisory/hero'
+  )
+  //overview content
+  const overview = await useContentSection(
+    'overview',
+    '/services/assessment-and-advisory/overview'
+  )
+  //services content
+  const services = await useContentSection(
+    'services',
+    '/services/assessment-and-advisory/services'
+  )
+  const assessmentServices = ref(
+    services.value?.meta?.services?.map((s) => ({
+      ...s,
+      expanded: false,
+    })) || []
   )
 </script>
 
 <template>
   <HeroSubpage>
-    <template #heading> Assessment & Advisory Services </template>
-    <p>
-      At Nexum, we believe a strong cybersecurity program starts with a clear
-      understanding of your current environment. Our Assessment & Advisory
-      services help you identify, evaluate, and prioritize risks across your
-      applications, networks, systems, and business processes.
-    </p>
+    <template #heading>{{ hero.title }}</template>
+    <ContentRenderer :value="hero" />
   </HeroSubpage>
 
   <Overview>
-    <!-- <p>
-      Backed by seasoned engineers and industry best practices, we conduct
-      multi-point, holistic reviews that go beyond surface-level scans—providing
-      a realistic picture of your security posture, stability, availability, and
-      overall resilience.
-    </p> -->
-    <p>
-      From uncovering vulnerabilities to validating configurations, Nexum
-      delivers actionable insights and tailored recommendations that enable you
-      to reduce risk, strengthen defenses, and align your security investments
-      with your business objectives.
-    </p>
+    <ContentRenderer :value="overview" />
   </Overview>
 
   <section class="section-two container">

@@ -1,5 +1,7 @@
 ---
 title: 'first*defense'
+route: '/'
+anchor: 'firstDefense'
 icons:
   - name: 'LogoFirstDefense'
     url: null
