@@ -1,8 +1,8 @@
 <script setup lang="ts">
   interface Props {
     heading: string
-    body: string
-    items: string[]
+    body?: string | Record<string, any>
+    items?: string[]
   }
 
   const props = defineProps<Props>()
@@ -34,7 +34,12 @@
       <h2>{{ props.heading }}</h2>
     </div>
     <div class="info-body">
-      <p>{{ props.body }}</p>
+      <template v-if="typeof props.body === 'object'">
+        <ContentRenderer :value="props.body" />
+      </template>
+      <template v-else>
+        <p>{{ props.body }}</p>
+      </template>
       <BaseGrid :cols="2">
         <div
           v-for="(item, idx) in props.items"
@@ -89,7 +94,8 @@
     padding: 30px;
     background-color: var(--lightblue);
 
-    > p {
+    :deep(p),
+    p {
       margin: 0 auto 30px;
     }
   }
@@ -105,6 +111,7 @@
     }
 
     p {
+      margin: 0;
       color: var(--orange);
     }
   }

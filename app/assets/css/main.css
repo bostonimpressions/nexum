@@ -141,6 +141,10 @@ p {
   box-shadow: 0 4px 21px 0 rgba(0, 0, 0, 0.09);
 }
 
+.floating-box [data-content-id] {
+  display: contents;
+}
+
 .chip {
   display: flex;
   padding: 8px 16px;

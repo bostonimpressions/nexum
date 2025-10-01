@@ -1,36 +1,28 @@
-<script setup>
-  const formatItems = [
-    { title: "Onsite or Remote Sessions" },
-    { title: "Fully Customizable" }
-  ]
+<script setup lang="ts">
+  interface Item {
+    format: string
+    features: string
+  }
 
-  const featureItems = [
-    { text: "Hands-on and collaborative with direct access to Nexum engineers" },
-    { text: "We tailor the scope to your environment, roles, and business objectives" }
-  ]
+  const props = defineProps<{
+    items: Item[]
+  }>()
 </script>
 
 <template>
   <section class="info-grid">
+    <!-- Table headers -->
     <div class="col">
       <h3 class="heading">Format</h3>
-      <div
-        v-for="item in formatItems"
-        :key="item.title"
-        class="card"
-      >
-        <h4>{{ item.title }}</h4>
+      <div v-for="(item, idx) in props.items" :key="idx" class="card">
+        <h4>{{ item.format }}</h4>
       </div>
     </div>
 
     <div class="col">
       <h3 class="heading">Features</h3>
-      <div
-        v-for="(item, idx) in featureItems"
-        :key="idx"
-        class="card"
-      >
-        <p>{{ item.text }}</p>
+      <div v-for="(item, idx) in props.items" :key="idx" class="card">
+        <p>{{ item.features }}</p>
       </div>
     </div>
   </section>
@@ -42,7 +34,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin: 40px 0;
-    align-items: stretch;
+    align-items: start;
   }
 
   .col {
@@ -62,17 +54,18 @@
   }
 
   .card {
-    height: 100%;
     min-height: 100px;
     display: flex;
     justify-content: flex-start;
     padding: 0 0 24px;
     border-bottom: 12px solid var(--lightgray);
+
     h4 {
       color: var(--blue);
       font-size: clamp(16px, 5vw, 22px);
       font-weight: 700;
     }
+
     p {
       font-size: clamp(14px, 5vw, 20px);
       font-weight: 400;
@@ -81,7 +74,6 @@
 
   @media (min-width: 768px) {
     .info-grid {
-      display: grid;
       gap: 40px;
       margin: 60px 0;
     }

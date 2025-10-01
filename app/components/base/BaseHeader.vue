@@ -539,7 +539,8 @@
           flex-direction: column;
           gap: 5px;
           width: 100%;
-          > li {
+          > li,
+          > a {
             padding: 10px 15px;
           }
         }

@@ -1,14 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  //video content
+  const videos = await useContentSection('videos', '/home/recent-videos')
+</script>
 
 <template>
-  <section class="section-recent">
+  <section :id="videos.meta?.anchor" class="section-recent">
     <div class="container">
-      <h2>Recent Videos</h2>
-      <p>
-        Each quarter, the managed security team at Nexum shares insights from
-        our first*defense® Security and Network Operations Command Centers
-        (SNOCC).
-      </p>
+      <h2>{{ videos.title }}</h2>
+      <ContentRenderer :value="videos" />
       <BaseGrid :cols="4">
         <div class="grid-item">
           <img src="/post-image-placeholder.png" alt="Video image" />

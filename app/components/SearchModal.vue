@@ -31,7 +31,7 @@
       // Get all content from the collection
       const allContent = await queryCollection('content').all()
 
-      console.log('all content', allContent)
+      //console.log('all content', allContent)
 
       // Filter results based on search query
       const query = searchQuery.value.toLowerCase()
@@ -62,7 +62,7 @@
 
       searchResults.value = results
 
-      console.log('results -', results)
+      //console.log('results -', results)
     } catch (error) {
       console.error('Search error:', error)
       searchResults.value = []
@@ -134,7 +134,7 @@
   const navigateToResult = (result) => {
     const path = result.meta?.route || result._path || '/'
     const anchor = result.meta?.anchor ? `#${result.meta.anchor}` : ''
-    console.log('Navigating to:', path + anchor)
+    //console.log('Navigating to:', path + anchor)
     navigateTo(path + anchor)
     closeModal()
   }
