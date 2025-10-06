@@ -17,12 +17,15 @@
       return matchesCategory && matchesQuery
     })
   })
+
+  //hero content
+  const hero = await useContentSection('hero', '/company/careers')
 </script>
 
 <template>
   <Hero theme="careers">
-    <h1>Careers</h1>
-    <p>Join Our Team</p>
+    <h1>{{ hero.title }}</h1>
+    <ContentRenderer :value="hero" />
   </Hero>
 
   <section class="section-one">

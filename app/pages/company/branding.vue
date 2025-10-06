@@ -1,11 +1,14 @@
 <script setup>
   import { nexumLogos, firstDefenseLogos, nexumColors } from '~/data/branding'
+  //hero content
+  const hero = await useContentSection('hero', '/company/branding')
 </script>
 
 <template>
   <Hero theme="branding">
-    <h1>Branding</h1>
-    <p>Use these resources to keep our brand consistent and secure.</p>
+    <h1>{{ hero.title }}</h1>
+    <ContentRenderer :value="hero" />
+
     <a href="/branding/Nexum Branding Guide 2024.pdf" target="_blank"
       >Download official assets and review usage standards.</a
     >
@@ -17,7 +20,11 @@
         <h2>Nexum Logo</h2>
 
         <BaseGrid :cols="4">
-          <div v-for="item in nexumLogos" :key="item.title" class="grid-item card">
+          <div
+            v-for="item in nexumLogos"
+            :key="item.title"
+            class="grid-item card"
+          >
             <div class="preview">
               <img :src="item.preview" alt="Asset preview" />
             </div>
@@ -42,7 +49,11 @@
         <h2>Nexum first<span>*</span>defense<sup>®</sup> Logo</h2>
 
         <BaseGrid :cols="4">
-          <div v-for="item in firstDefenseLogos" :key="item.title" class="grid-item card">
+          <div
+            v-for="item in firstDefenseLogos"
+            :key="item.title"
+            class="grid-item card"
+          >
             <div class="preview">
               <img :src="item.preview" alt="Asset preview" />
             </div>
@@ -82,7 +93,9 @@
                 <p><span>HEX</span> {{ color.hex }}</p>
                 <p><span>RGB</span> {{ color.rgb }}</p>
                 <p><span>CMYK</span> {{ color.cmyk }}</p>
-                <p v-if="color.pantone"><span>Pantone</span> {{ color.pantone }}</p>
+                <p v-if="color.pantone">
+                  <span>Pantone</span> {{ color.pantone }}
+                </p>
               </div>
             </div>
           </div>
@@ -194,7 +207,7 @@
       color: var(--white);
     }
     .title {
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.75);
     }
 
     &:nth-child(6) {
@@ -203,7 +216,7 @@
         color: var(--black);
       }
       .title {
-        color: rgba(0,0,0,0.75);
+        color: rgba(0, 0, 0, 0.75);
       }
     }
 
@@ -233,14 +246,14 @@
       font-size: 20px;
       font-weight: 400;
       text-transform: uppercase;
-      letter-spacing: .75px;
+      letter-spacing: 0.75px;
       &:first-child {
         margin-top: 0;
       }
 
       span {
         display: block;
-        font-size: .55em;
+        font-size: 0.55em;
         font-weight: 600;
         line-height: 1;
       }

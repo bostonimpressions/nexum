@@ -1,16 +1,13 @@
 <script setup>
   import { leadership } from '~/data/leadership'
+  //hero content
+  const hero = await useContentSection('hero', '/company/leadership')
 </script>
 
 <template>
   <Hero theme="leadership">
-    <h1>Nexum Leadership Team</h1>
-    <p>
-      Our leadership team brings together industry experts with a shared vision
-      for innovation, security, and excellence. With deep expertise and
-      strategic insight, they drive our mission forward, ensuring success and
-      growth
-    </p>
+    <h1>{{ hero.title }}</h1>
+    <ContentRenderer :value="hero" />
   </Hero>
 
   <section class="section-one">
