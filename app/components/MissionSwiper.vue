@@ -4,20 +4,14 @@
   import 'swiper/css'
   import 'swiper/css/navigation'
 
-  const slides = [
-    {
-      name: 'Best of Breed Products',
-      icon: '/icon-network-security.png',
-    },
-    {
-      name: 'Managed and Monitored Services',
-      icon: '/icon-cloud-security.png',
-    },
-    {
-      name: 'Manufacturer-Authorized Support',
-      icon: '/icon-identity-access.png',
-    },
-  ]
+  interface Slide {
+    name: string
+    icon?: string
+  }
+
+  defineProps<{
+    slides: Slide[]
+  }>()
 </script>
 
 <template>
@@ -34,12 +28,16 @@
       class="mission-slider"
     >
       <SwiperSlide v-for="(slide, i) in slides" :key="i" class="slide-item">
+        <div class="icon" v-if="slide.icon">
+          <img :src="slide.icon" :alt="slide.name" />
+        </div>
         <div class="label">
           <h3>{{ slide.name }}</h3>
         </div>
       </SwiperSlide>
     </Swiper>
 
+    <!-- Custom Nav -->
     <div class="custom-prev">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -64,6 +62,7 @@
         />
       </svg>
     </div>
+
     <div class="custom-next">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -115,10 +114,17 @@
           width: 120px;
           height: 120px;
           margin-bottom: 20px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
         }
-      }
-      h3 {
-        color: var(--lightorange);
+
+        h3 {
+          color: var(--lightorange);
+        }
       }
     }
   }

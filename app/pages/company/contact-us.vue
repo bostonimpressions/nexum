@@ -1,55 +1,45 @@
-<script setup></script>
+<script setup>
+  //hero content
+  const hero = await useContentSection('hero', '/company/contact-us/hero')
+  //overview content
+  const overview = await useContentSection(
+    'overview',
+    '/company/contact-us/overview'
+  )
+  //offices content
+  const offices = await useContentSection(
+    'offices',
+    '/company/contact-us/offices'
+  )
+</script>
 
 <template>
   <Hero theme="contact">
-    <h1>Reach Out to Us, We’re here for you</h1>
-    <p>
-      Have questions or need assistance? We're here to help! Reach out to us for
-      inquiries or support, and our team will get back to you as soon as
-      possible
-    </p>
+    <h1>{{ hero.title }}</h1>
+    <ContentRenderer :value="hero" />
   </Hero>
 
-  <section class="section-one">
+  <section :id="overview.meta?.anchor" class="section-one">
     <div class="container">
       <div class="page-row">
-        <h2>Interested In Connecting With NEXUM?</h2>
-        <p>Please fill out the form below or contact us on social media.</p>
-        <div class="floating-box">
+        <h2>{{ overview.title }}</h2>
+        <ContentRenderer :value="overview" />
+        <div :id="offices.meta?.anchor" class="floating-box">
           <div class="grid">
             <div class="grid-col">
               <div class="grid-header">
-                <h3>Our Offices</h3>
-                <p>
-                  You can reach out to us in our offices from different regions
-                </p>
+                <h3>{{ offices.title }}</h3>
+                <ContentRenderer :value="offices" />
               </div>
-              <div class="address">
-                <h4>Indiana Office</h4>
+              <div
+                class="address"
+                v-for="(office, i) in offices.meta?.offices"
+                :key="i"
+              >
+                <h4>{{ office.title }}</h4>
                 <p>
-                  2901 Carlson Drive Suite 204 Hammond, IN 46323 <br />
-                  (866) 726-6901
-                </p>
-              </div>
-              <div class="address">
-                <h4>Chicago Metro Office</h4>
-                <p>
-                  190 S. LaSalle Street Suite 1450 Chicago, IL 60603 <br />
-                  (866) 726-6901
-                </p>
-              </div>
-              <div class="address">
-                <h4>New England Regional Office</h4>
-                <p>
-                  2901 Carlson Drive Suite 204 Hammond, IN 46323 <br />
-                  (866) 726-6901
-                </p>
-              </div>
-              <div class="address">
-                <h4>Security & Network Operations Command Centers</h4>
-                <p>
-                  725 6th Street NW, Suite C Albuquerque, NM 87102 <br />
-                  (800) 301-3894
+                  {{ office.address }} <br />
+                  {{ office.phone }}
                 </p>
               </div>
             </div>

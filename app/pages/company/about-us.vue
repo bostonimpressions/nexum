@@ -1,78 +1,88 @@
-<script setup></script>
+<script setup>
+  //hero content
+  const hero = await useContentSection('hero', '/company/about-us/hero')
+  //overview content
+  const overview = await useContentSection(
+    'overview',
+    '/company/about-us/overview'
+  )
+  //anniversary content
+  const anniversary = await useContentSection(
+    'anniversary',
+    '/company/about-us/anniversary'
+  )
+  //four-pillars content
+  const fourPillars = await useContentSection(
+    'four-pillars',
+    '/company/about-us/four-pillars'
+  )
+  //managed-security content
+  const MSSP = await useContentSection(
+    'managed-security',
+    '/company/about-us/managed-security'
+  )
+  //SDVOSB content
+  const SDVOSB = await useContentSection(
+    'veteran-owned',
+    '/company/about-us/veteran-owned'
+  )
+</script>
 
 <template>
   <Hero theme="about">
-    <h1>About Us</h1>
-    <p>
-      We are dedicated to securing digital landscapes and building robust
-      network infrastructures. With a team of cybersecurity experts and
-      networking specialists, we provide cutting-edge solutions that protect
-      businesses from cyber threats, ensure data integrity, and optimize network
-      performance.
-    </p>
+    <h1>{{ hero.title }}</h1>
+    <ContentRenderer :value="hero" />
   </Hero>
 
-  <section class="section-one">
+  <section :id="overview.meta?.anchor" class="section-one">
     <div class="container">
       <div class="page-row">
-        <h2>Trusted in Security Since 2002</h2>
-        <p>
-          Nexum® is a cybersecurity and networking company that builds and
-          defends global networks, empowering organizations to conduct
-          mission-critical business securely and efficiently. We take a
-          holistic, value-based approach to cybersecurity and networking that
-          includes best-of-breed products, professional services, certified
-          training courses, manufacturer-authorized support, and monitored and
-          managed services.
-        </p>
-        <p>
-          Founded in Chicago in 2002 and headquartered in Hammond, Indiana, we
-          are a VA-verified Service-Disabled Veteran-Owned Small Business
-          (SDVOSB). Most importantly, we approach the business of cybersecurity
-          with one simple statement: 
-        </p>
+        <h2>{{ overview.title }}</h2>
+        <ContentRenderer :value="overview" />
       </div>
     </div>
-    <div class="container container-collapse">
-      <BlueBox />
+    <div :id="anniversary.meta?.anchor" class="container container-collapse">
+      <BlueBox
+        :buttonLabel="anniversary.meta?.buttons[0].label"
+        :buttonUrl="anniversary.meta?.buttons[0].link"
+      >
+        <template #title> {{ anniversary.title }} </template>
+
+        <template #body>
+          <ContentRenderer :value="anniversary" />
+        </template>
+
+        <template #image>
+          <img
+            :src="anniversary.meta?.imgs[0].url"
+            :alt="anniversary.meta?.imgs[0].alt"
+          />
+        </template>
+      </BlueBox>
     </div>
-    <div class="container">
+    <div :id="fourPillars.meta?.anchor" class="container">
       <div class="page-row">
-        <h2>Four Pillars One Mission</h2>
-        <p>
-          At Nexum® we approach the business of cybersecurity with one simple
-          statement: Do what’s right for the customer and success will follow.
-        </p>
-        <MissionSwiper />
+        <h2>{{ fourPillars.title }}</h2>
+        <ContentRenderer :value="fourPillars" />
+        <MissionSwiper :slides="fourPillars.meta?.missionSlides" />
       </div>
     </div>
-    <div class="container container-collapse">
+    <div :id="MSSP.meta?.anchor" class="container container-collapse">
       <BaseBanner>
-        <h2>Cybersecurity That Supports Your Needs</h2>
-        <p>
-          We are a SOC 2 Type 2-compliant Managed Security Service Provider
-          (MSSP) with a range of services to help you defend your network
-          efficiently and effectively. Most importantly, Nexum’s
-          manufacturer-authorized technical support team is available 24/7 via
-          telephone, email, and our web-based portal.
-          <br />
-          <br />
-          In other words, at Nexum, We Mean Security®.
-        </p>
-        <BaseButton>Managed Security Services</BaseButton>
+        <h2>{{ MSSP.title }}</h2>
+        <ContentRenderer :value="MSSP" />
+        <BaseButton link :to="MSSP.meta?.buttons[0].link">{{
+          MSSP.meta?.buttons[0].label
+        }}</BaseButton>
       </BaseBanner>
     </div>
-    <div class="container">
+    <div :id="SDVOSB.meta?.anchor" class="container">
       <div class="image-text-row">
-        <img
-          src="/logo-asdad-color.png"
-          alt="Service Disabled Veteran Owned Small Business"
-        />
-        <p>
-          Nexum is a VA-verified Service-Disabled Veteran-Owned Small Business
-          (SDVOSB)
-        </p>
-        <BaseButton>Learn More</BaseButton>
+        <img :src="SDVOSB.meta?.imgs[0].url" :alt="SDVOSB.meta?.imgs[0].alt" />
+        <ContentRenderer :value="SDVOSB" />
+        <BaseButton link :to="SDVOSB.meta?.buttons[0].link">{{
+          SDVOSB.meta?.buttons[0].label
+        }}</BaseButton>
       </div>
     </div>
   </section>
