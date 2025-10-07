@@ -3,7 +3,7 @@
     items: string[]
     iconColor?: string
     textColor?: string
-    variant?: 'default' | 'compact'
+    variant?: 'default' | 'basic' | 'checkboxes'
   }>()
 
   // Destructure with defaults inline
