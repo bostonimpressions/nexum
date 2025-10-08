@@ -154,7 +154,7 @@
         </svg>
       </div>
       <h2>Thank you!</h2>
-      <p>Your responses have been recorded.</p>
+      <p>We will reach out to you soon.</p>
     </div>
   </div>
 </template>
