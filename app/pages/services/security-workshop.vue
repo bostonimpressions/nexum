@@ -8,7 +8,44 @@
     'Server and Endpoint',
   ]
 
+  const info = {
+    heading: 'What is a Security Posture Workshop',
+    body: `Nexum has over 20 years of industry experience to help you identify your strengths
+  in these core areas and focus on the best approach to improve your security
+  posture, by enhancing existing solutions or potentially investing in new technology.
+  Our Security Lifecycle Workshop provides an opportunity to synchronize IT security
+  planning with your organization’s overall strategic objectives.
+
+  Work with Nexum’s team of engineering experts to understand how your
+  organization is currently positioned to tackle modern-day security threats and
+  changing network landscapes:`,
+    items: [
+      'Measure your organization against each core area of security',
+      'Understand potential areas of improvement',
+      'Confidential discovery and review designed for IT leadership',
+      'Prioritize your security investments and initiatives',
+    ],
+  }
+
+  const featureItems = [
+    {
+      format: '2 hours',
+      features: 'Initial consultation and survey',
+    },
+    {
+      format: '1-2 hours',
+      features: 'Review and recommendations',
+    },
+  ]
+
   const isModalOpen = ref(false)
+
+  //topics content
+  const topics = await useContentSection(
+    'topics',
+    '/services/security-workshop/topics'
+  )
+  const topicItems = computed(() => topics.value?.meta?.items || [])
 </script>
 
 <template>
@@ -24,7 +61,7 @@
     <BaseBulletList variant="basic" :items="bullets" text-color="var(--blue)" />
     <BaseButton
       solid
-      variant="blue"
+      variant="orange"
       class="modal-btn"
       @click="isModalOpen = true"
     >
@@ -63,7 +100,7 @@
             />
             <path
               d="M41.6982 31.705C36.3755 31.161 34.798 28.1805 34.7209 28.0243C34.4817 27.5285 33.9803 27.2198 33.4307 27.2121C32.8811 27.2121 32.3604 27.5246 32.1116 28.0204C32.0479 28.1477 30.4839 31.1552 25.1323 31.7031C24.3937 31.7783 23.8306 32.4014 23.8306 33.1461V38.9527C23.8306 46.1734 32.3893 50.6528 32.7538 50.8399C32.9621 50.946 33.1896 51 33.4153 51C33.6409 51 33.8685 50.946 34.0767 50.8399C34.4412 50.6528 43 46.1734 43 38.9527V33.1461C43 32.4033 42.4368 31.7802 41.6982 31.7031V31.705ZM38.2751 37.8994L33.2378 42.9382C32.9563 43.2218 32.5841 43.3626 32.2138 43.3626C31.8435 43.3626 31.4713 43.2218 31.1898 42.9382L28.5554 40.3031C27.9884 39.7378 27.9884 38.8196 28.5554 38.2524C29.1224 37.6853 30.0384 37.6853 30.6054 38.2524L32.2138 39.8613L36.227 35.8487C36.794 35.2816 37.7101 35.2816 38.277 35.8487C38.844 36.414 38.844 37.3322 38.277 37.8994H38.2751Z"
-              fill="#14A0DE"
+              fill="white"
             />
           </g>
           <defs>
@@ -77,12 +114,47 @@
     </BaseButton>
   </Overview>
 
+  <section
+    id="informative"
+    class="section-two container container-collapse info"
+  >
+    <Informative
+      :heading="info.heading"
+      :body="info.body"
+      :items="info.items"
+    />
+  </section>
+
+  <section id="features" class="section-two">
+    <div class="container">
+      <h2>Estimated Time</h2>
+      <FeatureTable :items="featureItems" formatHeading="" featuresHeading="" />
+    </div>
+  </section>
+
+  <section :id="topics.meta?.anchor" class="section-two container services">
+    <h2>{{ topics.title }}</h2>
+    <ServiceItem
+      v-for="(topic, i) in topicItems"
+      :key="i"
+      :heading="topic.heading"
+      :body="topic.body"
+      :items="topic.items"
+    />
+  </section>
+
   <BaseModal v-model="isModalOpen">
     <FormSecurityWorkshop />
   </BaseModal>
 </template>
 
 <style lang="scss" scoped>
+  .section-two {
+    margin: 0 auto 80px;
+    &.info {
+      margin-top: 120px;
+    }
+  }
   .modal-btn {
     width: auto;
   }

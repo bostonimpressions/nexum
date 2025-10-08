@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { computed } from 'vue'
+
   interface Item {
     format: string
     features: string
@@ -6,22 +8,47 @@
 
   const props = defineProps<{
     items: Item[]
+    formatHeading?: string
+    featuresHeading?: string
   }>()
+
+  // Default headings if not provided (null means fallback to default label)
+  const formatTitle = computed(() =>
+    props.formatHeading === undefined ? 'Format' : props.formatHeading
+  )
+  const featuresTitle = computed(() =>
+    props.featuresHeading === undefined ? 'Features' : props.featuresHeading
+  )
 </script>
 
 <template>
   <section class="info-grid">
-    <!-- Table headers -->
+    <!-- Format column -->
     <div class="col">
-      <h3 class="heading">Format</h3>
-      <div v-for="(item, idx) in props.items" :key="idx" class="card">
+      <h3 class="heading">
+        <span v-if="formatTitle">{{ formatTitle }}</span>
+      </h3>
+
+      <div
+        v-for="(item, idx) in props.items"
+        :key="`format-${idx}`"
+        class="card"
+      >
         <h4>{{ item.format }}</h4>
       </div>
     </div>
 
+    <!-- Features column -->
     <div class="col">
-      <h3 class="heading">Features</h3>
-      <div v-for="(item, idx) in props.items" :key="idx" class="card">
+      <h3 class="heading">
+        <span v-if="featuresTitle">{{ featuresTitle }}</span>
+      </h3>
+
+      <div
+        v-for="(item, idx) in props.items"
+        :key="`feature-${idx}`"
+        class="card"
+      >
         <p>{{ item.features }}</p>
       </div>
     </div>
@@ -51,6 +78,11 @@
     margin-bottom: 10px;
     border-bottom: 4px solid var(--lightorange);
     display: inline-block;
+    min-height: 1.5em;
+
+    span {
+      display: inline-block;
+    }
   }
 
   .card {

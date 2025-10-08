@@ -151,6 +151,11 @@ p {
   display: contents;
 }
 
+.services > h2 {
+  margin: 0 auto 90px;
+  text-align: center;
+}
+
 .chip {
   display: flex;
   padding: 8px 16px;
