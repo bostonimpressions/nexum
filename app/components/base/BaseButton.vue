@@ -27,6 +27,11 @@
     :class="buttonClass"
   >
     <div class="link-text">
+      <template v-if="$slots.icon">
+        <span class="icon">
+          <slot name="icon" />
+        </span>
+      </template>
       <slot />
       <span v-if="props.arrow" class="arrow">
         <!-- optional: use your SVG arrow here -->
@@ -98,6 +103,11 @@
       .arrow {
         transform: translateX(5px);
       }
+      .icon {
+        :deep(svg) {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 
@@ -123,6 +133,16 @@
 
     .arrow {
       display: inline-block;
+      transition: transform 0.2s;
+    }
+  }
+
+  .icon {
+    display: flex;
+    :deep(svg) {
+      width: 30px;
+      height: auto;
+      max-height: 30px;
       transition: transform 0.2s;
     }
   }

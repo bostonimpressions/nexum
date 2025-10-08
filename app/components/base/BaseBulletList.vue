@@ -23,7 +23,19 @@
       :style="{ color: textColor || 'var(--blue)' }"
     >
       <template v-if="variant === 'checkboxes'">
-        <img src="/icons/icon-check.png" alt="" class="bullet-icon" />
+        <svg
+          class="bullet-icon"
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M34.6597 9.43964L33.3194 10.7799L16.2198 27.8796C15.1724 28.9269 13.4749 28.9269 12.4286 27.8796L6.29198 21.7429C5.24461 20.6955 5.24461 18.9991 6.29198 17.9517C7.33935 16.9044 9.03689 16.9044 10.0832 17.9517L14.3248 22.1934L32.5195 3.99753L33.4703 3.04669L34.4201 2.09696C33.2762 0.811046 31.6108 0 29.7579 0H6.24206C2.79483 0 0 2.79483 0 6.24206V29.7579C0 33.2052 2.79483 36 6.24206 36H29.7579C33.2052 36 36 33.2052 36 29.7579V8.09936L34.6597 9.43964Z"
+            :fill="iconColor || 'var(--blue)'"
+          />
+        </svg>
       </template>
       <template v-if="variant === 'default'">
         <svg

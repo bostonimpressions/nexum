@@ -1,44 +1,25 @@
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  const bullets = [
-    'Governance',
-    'Cloud and Infrastructure',
-    'Application',
-    'Server and Endpoint',
-  ]
-
-  const info = {
-    heading: 'What is a Security Posture Workshop',
-    body: `Nexum has over 20 years of industry experience to help you identify your strengths
-  in these core areas and focus on the best approach to improve your security
-  posture, by enhancing existing solutions or potentially investing in new technology.
-  Our Security Lifecycle Workshop provides an opportunity to synchronize IT security
-  planning with your organization’s overall strategic objectives.
-
-  Work with Nexum’s team of engineering experts to understand how your
-  organization is currently positioned to tackle modern-day security threats and
-  changing network landscapes:`,
-    items: [
-      'Measure your organization against each core area of security',
-      'Understand potential areas of improvement',
-      'Confidential discovery and review designed for IT leadership',
-      'Prioritize your security investments and initiatives',
-    ],
-  }
-
-  const featureItems = [
-    {
-      format: '2 hours',
-      features: 'Initial consultation and survey',
-    },
-    {
-      format: '1-2 hours',
-      features: 'Review and recommendations',
-    },
-  ]
-
   const isModalOpen = ref(false)
+
+  //hero content
+  const hero = await useContentSection(
+    'hero',
+    '/services/security-workshop/hero'
+  )
+  //overview content
+  const overview = await useContentSection(
+    'overview',
+    '/services/security-workshop/overview'
+  )
+
+  //info content
+  const info = await useContentSection(
+    'info',
+    '/services/security-workshop/info'
+  )
+  const infoItems = computed(() => info.value?.meta?.items || [])
 
   //topics content
   const topics = await useContentSection(
@@ -46,26 +27,42 @@
     '/services/security-workshop/topics'
   )
   const topicItems = computed(() => topics.value?.meta?.items || [])
+
+  //features content
+  const features = await useContentSection(
+    'features',
+    '/services/security-workshop/features'
+  )
+  const featureItems = computed(() => features.value?.meta?.items || [])
+
+  //report content
+  const report = await useContentSection(
+    'report',
+    '/services/security-workshop/report'
+  )
+  const reportItems = computed(() => report.value?.meta?.items || [])
 </script>
 
 <template>
   <HeroSubpage>
-    <template #heading> Security Workshop </template>
+    <template #heading> {{ hero.title }} </template>
   </HeroSubpage>
 
-  <Overview>
-    <p>
-      In this complimentary workshop we’ll conduct a manufacturer-agnostic
-      review of your security posture across four core areas:
-    </p>
-    <BaseBulletList variant="basic" :items="bullets" text-color="var(--blue)" />
+  <Overview :id="overview.meta?.anchor">
+    <h2>{{ overview.title }}</h2>
+    <ContentRenderer :value="overview" />
+    <BaseBulletList
+      :items="overview.meta?.bullets"
+      variant="basic"
+      text-color="var(--blue)"
+    />
     <BaseButton
       solid
       variant="orange"
       class="modal-btn"
       @click="isModalOpen = true"
     >
-      <span class="icon">
+      <template #icon>
         <svg
           width="43"
           height="51"
@@ -109,25 +106,22 @@
             </clipPath>
           </defs>
         </svg>
-      </span>
-      Sign Up for the Workshop
+      </template>
+
+      {{ overview.meta?.buttonLabel }}
     </BaseButton>
   </Overview>
 
   <section
-    id="informative"
+    :id="info.meta?.anchor"
     class="section-two container container-collapse info"
   >
-    <Informative
-      :heading="info.heading"
-      :body="info.body"
-      :items="info.items"
-    />
+    <Informative :heading="info.title" :body="info.body" :items="infoItems" />
   </section>
 
-  <section id="features" class="section-two">
+  <section :id="features.meta?.anchor" class="section-two">
     <div class="container">
-      <h2>Estimated Time</h2>
+      <h2>{{ features.title }}</h2>
       <FeatureTable :items="featureItems" formatHeading="" featuresHeading="" />
     </div>
   </section>
@@ -141,6 +135,43 @@
       :body="topic.body"
       :items="topic.items"
     />
+  </section>
+
+  <section :id="report.meta?.anchor" class="section-two">
+    <div class="container container-collapse">
+      <BaseBanner align="left">
+        <template #heading>
+          <h2>
+            <span>
+              <svg
+                width="93"
+                height="102"
+                viewBox="0 0 93 102"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M81.5279 69.7795C81.5279 70.9034 80.9265 71.9529 79.9588 72.5153L47.6448 91.2941C46.6782 91.8565 45.4763 91.8565 44.5076 91.2941L12.1947 72.5153C11.227 71.9529 10.6255 70.9034 10.6255 69.7795V32.2231C10.6255 31.0982 11.227 30.0487 12.1947 29.4863L44.5076 10.7075C44.9914 10.4258 45.5336 10.2854 46.0767 10.2854C46.6199 10.2854 47.162 10.4258 47.6459 10.7075L61.0314 18.4865L69.2038 11.3559L52.757 1.79733C48.6365 -0.59911 43.517 -0.59911 39.3965 1.79733L7.08456 20.5761C2.96403 22.9694 0.404297 27.4334 0.404297 32.2231V69.7795C0.404297 74.5682 2.96403 79.0312 7.08456 81.4255L39.3975 100.204C41.4578 101.402 43.7678 102.001 46.0778 102.001C48.3878 102.001 50.6967 101.402 52.757 100.204L85.0699 81.4255C89.1905 79.0312 91.7502 74.5693 91.7502 69.7795V37.0526L81.5279 49.7869V69.7795Z"
+                  fill="white"
+                />
+                <path
+                  d="M36.0099 45.8485C33.6843 43.5757 29.9592 43.4144 27.4629 45.5909C24.8272 47.8888 24.5411 51.9035 26.824 54.5566L38.1201 67.6846C38.2846 67.8731 38.4864 68.0837 38.6748 68.2575C41.4353 70.7912 45.713 70.5932 48.2311 67.8145L48.2904 67.7495L91.2439 20.3434C93.0804 18.3083 93.0544 15.1483 91.1211 13.1562C89.1139 11.0886 85.8206 11.0509 83.7666 13.0724L43.2323 52.952L36.0099 45.8496V45.8485Z"
+                  fill="#FFA827"
+                />
+              </svg>
+            </span>
+            {{ report.title }}
+          </h2>
+        </template>
+
+        <BaseBulletList
+          variant="checkboxes"
+          text-color="white"
+          icon-color="white"
+          :items="reportItems"
+        />
+      </BaseBanner>
+    </div>
   </section>
 
   <BaseModal v-model="isModalOpen">
@@ -157,11 +188,5 @@
   }
   .modal-btn {
     width: auto;
-  }
-  .icon {
-    svg {
-      width: auto;
-      height: 30px;
-    }
   }
 </style>
