@@ -43,6 +43,60 @@
     comments: '',
   })
 
+  const usStates = [
+    'Alabama',
+    'Alaska',
+    'Arizona',
+    'Arkansas',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'Delaware',
+    'District of Columbia',
+    'Florida',
+    'Georgia',
+    'Hawaii',
+    'Idaho',
+    'Illinois',
+    'Indiana',
+    'Iowa',
+    'Kansas',
+    'Kentucky',
+    'Louisiana',
+    'Maine',
+    'Maryland',
+    'Massachusetts',
+    'Michigan',
+    'Minnesota',
+    'Mississippi',
+    'Missouri',
+    'Montana',
+    'Nebraska',
+    'Nevada',
+    'New Hampshire',
+    'New Jersey',
+    'New Mexico',
+    'New York',
+    'North Carolina',
+    'North Dakota',
+    'Ohio',
+    'Oklahoma',
+    'Oregon',
+    'Pennsylvania',
+    'Rhode Island',
+    'South Carolina',
+    'South Dakota',
+    'Tennessee',
+    'Texas',
+    'Utah',
+    'Vermont',
+    'Virginia',
+    'Washington',
+    'West Virginia',
+    'Wisconsin',
+    'Wyoming',
+  ]
+
   const formSubmitted = ref(false)
 
   const handleSubmit = () => {
@@ -126,8 +180,14 @@
         </div>
         <div class="field">
           <label>State <span>*</span></label>
-          <input type="text" v-model="contact.state" required />
+          <select v-model="contact.state" required>
+            <option value="" disabled>Select your state</option>
+            <option v-for="state in usStates" :key="state" :value="state">
+              {{ state }}
+            </option>
+          </select>
         </div>
+
         <div class="field">
           <label>Company <span>*</span></label>
           <input type="text" v-model="contact.company" required />
@@ -303,11 +363,25 @@
       }
 
       input,
-      textarea {
-        padding: 0.5rem;
+      textarea,
+      select {
+        padding: 0.5rem 0.75rem;
         border-radius: 6px;
         border: 1px solid var(--border);
         font-size: 1rem;
+        background-color: #fff;
+        height: 42px; /* 👈 forces consistent height */
+        line-height: 1.5;
+        appearance: none;
+      }
+
+      select {
+        background-image: url("data:image/svg+xml;utf8,<svg fill='none' stroke='%23000' stroke-width='1.5' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' d='M8.25 9.75L12 13.5l3.75-3.75'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+        background-size: 1rem;
+        padding-right: 2rem;
+        cursor: pointer;
       }
 
       textarea {
