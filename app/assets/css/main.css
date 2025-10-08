@@ -13,6 +13,8 @@
     --gray: #424242;
     --darkgray: #272727;
     --black: #000c21;
+    --ambient: #f7f7f7;
+    --border: #cacaca;
   }
 
   html {

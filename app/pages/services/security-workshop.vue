@@ -28,7 +28,7 @@
     </button>
   </Overview>
 
-  <BaseModal v-model="isModalOpen" title="Security Posture Workshop Form">
+  <BaseModal v-model="isModalOpen">
     <FormSecurityWorkshop />
   </BaseModal>
 </template>
