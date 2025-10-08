@@ -77,6 +77,7 @@
 
       li {
         display: flex;
+        flex-direction: row;
         align-items: flex-start;
         gap: 15px;
         margin: 0 0 20px;

@@ -102,7 +102,7 @@
 
   .info-grid-item {
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
     gap: 15px;
 
     svg {
